@@ -11,26 +11,21 @@
 </head>
 <body>
 
-<!-- LOADER -->
 <div class="loader" id="loader"><div class="loader__inner">
   <div class="loader__name"><span>P</span><span>R</span><span>E</span><span>R</span><span>I</span><span>K</span><span>A</span></div>
   <div class="loader__bar"><span id="loaderBar"></span></div>
   <div class="loader__pct"><span id="loaderPct">00</span> — loading</div>
 </div></div>
 
-<!-- CURSOR -->
 <div class="cursor" id="cursor"><div class="cursor__dot"></div><div class="cursor__ring"></div><span class="cursor__label" id="cursorLabel"></span></div>
 <div class="cursor-fly" id="cursorFly1"></div>
 <div class="cursor-fly f2" id="cursorFly2"></div>
 
-<!-- BG -->
 <div class="bg-spotlight" id="spotlight"></div>
 <div class="bg-grain"></div>
 
-<!-- TOP BAR -->
 <header class="topbar"><div class="topbar__brand" data-scroll-to="hero" data-cursor="top">Prerika<sup>®</sup></div></header>
 
-<!-- ICON RAIL -->
 <nav class="rail" id="rail" aria-label="Sections">
   <ul class="rail__list" id="railList">
     <li class="ric" data-target="hero"><button aria-label="Home"><svg class="h-bounce" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></button><span class="ric__tip">Home</span></li>
@@ -50,12 +45,11 @@
 
 <main id="scroll-content">
 
-  <!-- HERO (door-split) -->
+  <!-- HERO -->
   <section class="hero" id="hero" data-stage="hero">
     <div class="hero__kicker"><p>A marketer who cares more about the <em>why</em> than the what.</p></div>
     <div class="hero__name" id="heroName">
-      <div class="hname hname--l">PRERIKA<br><span class="stroke">SINGH</span></div>
-      <div class="hname hname--r" aria-hidden="true">PRERIKA<br><span class="stroke">SINGH</span></div>
+      <span class="hw hw-l">Prerika</span><span class="hw hw-r">Singh</span>
     </div>
     <div class="hero__row">
       <div class="hero__roles"><span>Brand Thinker</span><i class="dot"></i><span>Storyteller</span><i class="dot"></i><span>MBA · IIFT</span></div>
@@ -67,86 +61,111 @@
 
   <!-- ABOUT -->
   <section class="about" id="about" data-stage="about">
-    <div class="eyebrow"><span class="idx">01</span><span>About</span></div>
-    <p class="about__lead">Hi, I'm <span class="accent">Prerika.</span> A few things that make me, me —</p>
-    <ul class="about__bullets" id="aboutBullets">
-      <li><span class="n">01</span><span class="tx">I feel for people. <b>I'm empathetic.</b></span></li>
-      <li><span class="n">02</span><span class="tx">New situations don't intimidate me — <b>they interest me.</b></span></li>
-      <li><span class="n">03</span><span class="tx">I take ownership — <b>I care about the outcome.</b></span></li>
-      <li><span class="n">04</span><span class="tx">I think in <b>systems &amp; to-do lists.</b></span></li>
-      <li><span class="n">05</span><span class="tx">I move fast — <b>without losing the details.</b></span></li>
-    </ul>
+    <div class="eyebrow"><span class="idx">01</span><span>About me</span></div>
+    <div class="about__grid">
+      <div class="about__text">
+        <h2 class="about__h">Hi, I'm <span class="about__name">Prerika<svg class="about__squiggle" viewBox="0 0 220 18" preserveAspectRatio="none"><path d="M3 11 C34 3 64 16 96 9 C128 2 162 15 217 8"/></svg></span>.</h2>
+        <p class="about__p">I've always cared more about the <em>why</em> than the <em>what.</em> I did my B.Com and recently completed my <strong>MBA from IIFT</strong> to go deeper into how businesses work across markets — which turned into a real interest in marketing and how brands connect with people. From a D2C beauty brand to an MNC like <strong>Maersk</strong>, I've worked across social media, B2B sales &amp; operations and customer-experience strategy. It made me a <em>well-rounded marketer.</em></p>
+        <span class="about__label">✦ Get to know me</span>
+        <ul class="about__bullets">
+          <li><b>I feel for people</b> — I'm empathetic.</li>
+          <li><b>I'm comfortable with ambiguity</b> — new situations interest me, they don't intimidate me.</li>
+          <li><b>I take ownership</b> — I care about the outcome and the learning.</li>
+          <li><b>I think in systems &amp; to-do lists.</b></li>
+          <li><b>I move fast</b> — without losing the details.</li>
+        </ul>
+      </div>
+      <div class="about__media">
+        <span class="about__blob"></span>
+        <figure class="about__photo"><img src="assets/img/prerika-about.jpg" alt="Prerika Singh" /></figure>
+        <div class="about__badge" aria-hidden="true">
+          <svg viewBox="0 0 110 110"><defs><path id="aboutCirc" d="M55,55 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text><textPath href="#aboutCirc">★ OPEN TO ROLES ★ MARKETING &amp; BRAND  </textPath></text></svg>
+          <i>✦</i>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- FUN FACTS — scroll-driven swirl sequence -->
+  <!-- FUN FACTS -->
   <section class="facts2" id="facts" data-stage="facts">
     <div class="facts2__head">
       <div class="eyebrow"><span class="idx">02</span><span>Off the résumé</span></div>
       <h2>Fun facts</h2>
     </div>
     <div class="facts2__stage" id="factsStage">
-      <article class="fcard"><div class="fcard__img"><img src="assets/img/annie.jpg" alt="Annie"/></div><div class="fcard__cap"><span class="n">01</span><h3>Meet Annie</h3><p>4 years &amp; many pitches to get a dog.</p></div></article>
-      <article class="fcard"><div class="fcard__img"><img src="assets/img/portrait-elegant.jpg" alt="Karate"/></div><div class="fcard__cap"><span class="n">02</span><h3>Black belt &amp; cricket</h3><p>Discipline, focus, resilience, teamwork.</p></div></article>
-      <article class="fcard"><div class="fcard__img"><img src="assets/img/travel-batu.jpg" alt="Curious"/></div><div class="fcard__cap"><span class="n">03</span><h3>Forever curious</h3><p>Facts, places, music, ideas.</p></div></article>
-      <article class="fcard"><div class="fcard__img"><img src="assets/img/travel-petronas.jpg" alt="Hobbies"/></div><div class="fcard__cap"><span class="n">04</span><h3>Many hobbies</h3><p>Dancing, journaling, badminton, travel.</p></div></article>
-      <article class="fcard"><div class="fcard__img"><img src="assets/img/murdle.jpg" alt="Puzzles"/></div><div class="fcard__cap"><span class="n">05</span><h3>Puzzles for fun</h3><p>Rubik's, Wordle, Sudoku, Murdle.</p></div></article>
+      <article class="fcard"><div class="fcard__inner">
+        <div class="fcard__front"><div class="fcard__img"><img src="assets/img/annie.jpg" alt="Annie"/></div><div class="fcard__cap"><span class="n">01</span><h3>Meet Annie</h3><i>hover →</i></div></div>
+        <div class="fcard__back"><span class="n">01</span><h3>Meet Annie</h3><p>I love animals and convinced my parents to get a dog. It took 4 years and multiple pitches. Meet Annie — she was worth every pitch.</p></div>
+      </div></article>
+      <article class="fcard"><div class="fcard__inner">
+        <div class="fcard__front"><div class="fcard__img"><img src="assets/img/karate-cert.jpg" alt="Karate black belt certificate"/></div><div class="fcard__cap"><span class="n">02</span><h3>Black belt &amp; cricket</h3><i>hover →</i></div></div>
+        <div class="fcard__back"><span class="n">02</span><h3>Black belt &amp; cricket</h3><p>A black belt in karate and district-level cricket. The first taught me discipline and focus; the second, resilience and teamwork.</p></div>
+      </div></article>
+      <article class="fcard"><div class="fcard__inner">
+        <div class="fcard__front"><div class="fcard__img"><img src="assets/img/explore-quote.jpg" alt="I just want to explore"/></div><div class="fcard__cap"><span class="n">03</span><h3>Forever curious</h3><i>hover →</i></div></div>
+        <div class="fcard__back"><span class="n">03</span><h3>Forever curious</h3><p>A thing for discovering new facts, places, music, ideas. I used to bother my mom all day with questions — I've just gotten better at Googling and using AI.</p></div>
+      </div></article>
+      <article class="fcard"><div class="fcard__inner">
+        <div class="fcard__front"><div class="fcard__img"><img src="assets/img/travel-petronas.jpg" alt="Travel"/></div><div class="fcard__cap"><span class="n">04</span><h3>Many hobbies</h3><i>hover →</i></div></div>
+        <div class="fcard__back"><span class="n">04</span><h3>Many hobbies</h3><p>I refuse to stick to one. Dancing, journaling, badminton, shows in different languages, new music, travelling — it keeps me sharp and interested in the world.</p></div>
+      </div></article>
+      <article class="fcard"><div class="fcard__inner">
+        <div class="fcard__front"><div class="fcard__img zoom"><img src="assets/img/murdle.jpg" alt="Murdle puzzle book"/></div><div class="fcard__cap"><span class="n">05</span><h3>Puzzles for fun</h3><i>hover →</i></div></div>
+        <div class="fcard__back"><span class="n">05</span><h3>Puzzles for fun</h3><p>Rubik's cube, Wordle, Sudoku, crossword. I enjoy sitting with something that doesn't make sense yet — and not leaving until it does.</p></div>
+      </div></article>
     </div>
-    <p class="facts2__hint">scroll to play →</p>
-    <!-- mobile grid -->
+    <p class="facts2__hint">scroll to play · hover to flip</p>
     <div class="facts2__mobile">
-      <div class="fmcard"><span>01</span><h3>Meet Annie</h3><p>4 years &amp; many pitches to get a dog.</p></div>
-      <div class="fmcard"><span>02</span><h3>Black belt &amp; cricket</h3><p>Discipline, focus, resilience, teamwork.</p></div>
-      <div class="fmcard"><span>03</span><h3>Forever curious</h3><p>Facts, places, music, ideas.</p></div>
-      <div class="fmcard"><span>04</span><h3>Many hobbies</h3><p>Dancing, journaling, badminton, travel.</p></div>
-      <div class="fmcard"><span>05</span><h3>Puzzles for fun</h3><p>Rubik's, Wordle, Sudoku, Murdle.</p></div>
+      <div class="fmcard"><span>01</span><h3>Meet Annie</h3><p>4 years &amp; many pitches to get a dog. She was worth every one.</p></div>
+      <div class="fmcard"><span>02</span><h3>Black belt &amp; cricket</h3><p>Discipline &amp; focus from karate; resilience &amp; teamwork from cricket.</p></div>
+      <div class="fmcard"><span>03</span><h3>Forever curious</h3><p>Facts, places, music, ideas — I just want to explore.</p></div>
+      <div class="fmcard"><span>04</span><h3>Many hobbies</h3><p>Dancing, journaling, badminton, new music, travelling.</p></div>
+      <div class="fmcard"><span>05</span><h3>Puzzles for fun</h3><p>Rubik's, Wordle, Sudoku — until it makes sense.</p></div>
     </div>
   </section>
 
-  <!-- PROJECTS — FOLDERS -->
+  <!-- PROJECTS — stacked images -->
   <section class="projects" id="projects" data-stage="projects">
-    <div class="projects__head">
-      <div class="eyebrow"><span class="idx">03</span><span>Selected work</span></div>
-      <h2>Open a <em>folder.</em></h2>
+    <div class="projects__top">
+      <div><div class="eyebrow"><span class="idx">03</span><span>Selected work</span></div>
+        <h2 class="projects__title">Projects <span>(04)</span></h2></div>
+      <p class="projects__hint">click a project to open ↗</p>
     </div>
-    <div class="folders" id="folders">
-      <button class="folder" data-case="oreo" data-cursor="open">
-        <svg class="folder__ico" viewBox="0 0 120 96"><path class="folder__back" d="M6 18a6 6 0 016-6h28l10 10h58a6 6 0 016 6v8H6z"/><rect class="folder__paper" x="20" y="20" width="80" height="54" rx="3" fill="#fff" opacity=".92"/><path class="folder__front" d="M6 34h108v50a6 6 0 01-6 6H12a6 6 0 01-6-6z"/></svg>
-        <div class="folder__name">Oreo</div><div class="folder__cat">Brand Campaign</div><span class="folder__open">open ↗</span>
-      </button>
-      <button class="folder" data-case="mokobara" data-cursor="open">
-        <svg class="folder__ico" viewBox="0 0 120 96"><path class="folder__back" d="M6 18a6 6 0 016-6h28l10 10h58a6 6 0 016 6v8H6z"/><rect class="folder__paper" x="20" y="20" width="80" height="54" rx="3" fill="#fff" opacity=".92"/><path class="folder__front" d="M6 34h108v50a6 6 0 01-6 6H12a6 6 0 01-6-6z"/></svg>
-        <div class="folder__name">Mokobara</div><div class="folder__cat">Brand Analysis</div><span class="folder__open">open ↗</span>
-      </button>
-      <button class="folder" data-case="jacquemus" data-cursor="open">
-        <svg class="folder__ico" viewBox="0 0 120 96"><path class="folder__back" d="M6 18a6 6 0 016-6h28l10 10h58a6 6 0 016 6v8H6z"/><rect class="folder__paper" x="20" y="20" width="80" height="54" rx="3" fill="#fff" opacity=".92"/><path class="folder__front" d="M6 34h108v50a6 6 0 01-6 6H12a6 6 0 01-6-6z"/></svg>
-        <div class="folder__name">Jacquemus</div><div class="folder__cat">Brand Analysis</div><span class="folder__open">open ↗</span>
-      </button>
+    <div class="projects__row" id="projectsRow">
+      <button class="pcard" data-case="oreo" data-cursor="open"><div class="pcard__img"><img src="assets/img/thumb-oreo.jpg" alt="Oreo"/></div><div class="pcard__meta"><span class="pcard__name">Oreo — Still Golden</span><span class="pcard__cat">Brand Campaign</span></div></button>
+      <button class="pcard" data-case="turban" data-cursor="open"><div class="pcard__img"><img src="assets/img/thumb-turban.jpg" alt="Turban"/></div><div class="pcard__meta"><span class="pcard__name">Turban</span><span class="pcard__cat">Content Strategy</span></div></button>
+      <button class="pcard" data-case="mokobara" data-cursor="open"><div class="pcard__img"><img src="assets/img/thumb-mokobara.jpg" alt="Mokobara"/></div><div class="pcard__meta"><span class="pcard__name">Mokobara</span><span class="pcard__cat">Brand Analysis</span></div></button>
+      <button class="pcard" data-case="jacquemus" data-cursor="open"><div class="pcard__img"><img src="assets/img/thumb-jacquemus.jpg" alt="Jacquemus"/></div><div class="pcard__meta"><span class="pcard__name">Jacquemus</span><span class="pcard__cat">Brand Analysis</span></div></button>
     </div>
   </section>
 
-  <!-- SKILLS & TOOLS -->
+  <!-- SKILLS -->
   <section class="skills" id="skills" data-stage="skills">
-    <div class="skills__head"><div class="eyebrow"><span class="idx">04</span><span>Capabilities</span></div><h2>Skills &amp; tools.</h2></div>
+    <div class="skills__head"><div class="eyebrow"><span class="idx">04</span><span>Certificates, Skills &amp; Tools</span></div><h2>Skills &amp; tools.</h2></div>
     <div class="skills__cols">
       <div>
-        <div class="skblock"><div class="skblock__label">Marketing &amp; Strategy</div><div class="skchips"><span>Content Strategy</span><span>Market Research</span><span>Social Media</span><span>B2B Sales</span><span>Consumer Behaviour</span><span>GTM Strategy</span><span>Brand Management</span><span>Growth</span></div></div>
-        <div class="skblock"><div class="skblock__label">Strengths</div><div class="skchips"><span>Ambition</span><span>Problem-Solving</span><span>Communication</span><span>Teamwork</span><span>Ownership</span></div></div>
+        <div class="skblock"><div class="skblock__label">Marketing &amp; Strategy Skills</div><div class="skchips"><span>Content Strategy</span><span>Market Research</span><span>Social Media Marketing</span><span>B2B Sales &amp; Lead Generation</span><span>Consumer Behaviour Analysis</span><span>GTM Strategies</span><span>Campaign Planning</span><span>Brand Management</span><span>Digital Marketing</span></div></div>
+        <div class="skblock"><div class="skblock__label">Soft Skills</div><div class="skchips"><span>Ambition</span><span>Problem-Solving &amp; Critical Thinking</span><span>Teamwork &amp; Collaboration</span><span>Communication</span><span>Organisation &amp; Time Management</span></div></div>
       </div>
       <div>
-        <div class="skblock"><div class="skblock__label">Tools I use</div>
+        <div class="skblock"><div class="skblock__label">Tools</div>
           <div class="tools">
-            <div class="tool"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="3.5" height="9" rx="1" fill="#F2C811"/><rect x="9.5" y="6" width="3.5" height="14" rx="1" fill="#E8A317"/><rect x="16" y="3" width="3.5" height="17" rx="1" fill="#D98A0B"/></svg><span>Power BI</span></div>
-            <div class="tool"><svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="6" rx="7" ry="3" stroke="#7CA9C7" stroke-width="1.6"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6" stroke="#7CA9C7" stroke-width="1.6"/><path d="M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3" stroke="#7CA9C7" stroke-width="1.6"/></svg><span>SQL</span></div>
-            <div class="tool"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" fill="#1D7045"/><path d="M8 8l8 8M16 8l-8 8" stroke="#fff" stroke-width="1.8"/></svg><span>Excel</span></div>
-            <div class="tool"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" fill="#C43E1C"/><circle cx="9.5" cy="12" r="3.5" stroke="#fff" stroke-width="1.8"/></svg><span>PowerPoint</span></div>
-            <div class="tool"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#7D2AE8"/><circle cx="12" cy="12" r="3.4" fill="#fff"/></svg><span>Canva</span></div>
+            <div class="tool"><img src="assets/img/tools/canva.png" alt="Canva"/><span>Canva</span></div>
+            <div class="tool"><img src="assets/img/tools/instagram.png" alt="Instagram"/><span>Instagram</span></div>
+            <div class="tool"><img src="assets/img/tools/excel.png" alt="Excel"/><span>Excel</span></div>
+            <div class="tool"><img src="assets/img/tools/powerpoint.png" alt="PowerPoint"/><span>PowerPoint</span></div>
+            <div class="tool"><img src="assets/img/tools/powerbi.png" alt="Power BI"/><span>Power BI</span></div>
+            <div class="tool"><img src="assets/img/tools/linkedin.png" alt="LinkedIn"/><span>LinkedIn</span></div>
+            <div class="tool"><img src="assets/img/tools/notion.png" alt="Notion"/><span>Notion</span></div>
+            <div class="tool"><img src="assets/img/tools/chatgpt.png" alt="ChatGPT"/><span>ChatGPT</span></div>
+            <div class="tool"><img src="assets/img/tools/claude.png" alt="Claude"/><span>Claude</span></div>
           </div></div>
-        <div class="skblock"><div class="skblock__label">Certified</div><div class="skchips"><span>Consumer Behavior · Udemy</span><span>Marketing Strategy · Udemy</span><span>E-Business · Udemy</span><span>Business Mgmt · Swayam</span></div></div>
+        <div class="skblock"><div class="skblock__label">Certificates</div><div class="skchips"><span>Microsoft Excel — Beginner to Advanced 2024 · Udemy</span><span>Business Fundamentals: Marketing Strategy · Udemy</span><span>The Complete Digital Marketing Course (12-in-1) · Udemy</span></div></div>
       </div>
     </div>
   </section>
 
-  <!-- JOURNEY — DETAILED PIXEL MEADOW -->
+  <!-- JOURNEY -->
   <section class="journey" id="journey" data-stage="journey">
     <div class="scene" id="journeyScene">
       <div class="scene__sky"></div>
@@ -159,21 +178,23 @@
       <div class="scene__hud"><div class="eyebrow"><span class="idx">05</span><span>The journey so far</span></div><h2 id="journeyTitle">Walk with me →</h2></div>
       <div class="world" id="journeyWorld">
         <div class="path"></div>
-        <div class="milestone" data-x="13"><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld bld-uni"><rect x="14" y="34" width="52" height="40" fill="#b9a0d8"/><path d="M8 34 40 14 72 36z" fill="#7c63a6"/><rect x="36" y="54" width="10" height="20" fill="#5b4480"/><rect x="20" y="42" width="9" height="9" fill="#efe6fb"/><rect x="51" y="42" width="9" height="9" fill="#efe6fb"/><rect x="38" y="6" width="4" height="10" fill="#7c63a6"/></svg></div><div class="milestone__sign"><div class="yr">2021 — 2024</div><h4>B.Com (Hons)</h4><p>VIPS, GGSIPU · 8.27</p></div></div>
-        <div class="milestone" data-x="29"><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld"><rect x="18" y="30" width="44" height="44" fill="#e8b06a"/><path d="M14 30 40 14 66 30z" fill="#c98a44"/><rect x="34" y="54" width="12" height="20" fill="#8a5a2e"/><rect x="24" y="38" width="8" height="8" fill="#fff3da"/><rect x="48" y="38" width="8" height="8" fill="#fff3da"/></svg></div><div class="milestone__sign"><div class="yr">2023</div><h4>MaxKart Beauty</h4><p>Social &amp; Sales intern</p></div></div>
-        <div class="milestone" data-x="45"><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld"><rect x="20" y="26" width="40" height="48" fill="#8fb5c9"/><rect x="26" y="32" width="7" height="7" fill="#e8f4fb"/><rect x="37" y="32" width="7" height="7" fill="#e8f4fb"/><rect x="48" y="32" width="7" height="7" fill="#e8f4fb"/><rect x="26" y="44" width="7" height="7" fill="#e8f4fb"/><rect x="37" y="44" width="7" height="7" fill="#e8f4fb"/><rect x="48" y="44" width="7" height="7" fill="#e8f4fb"/><rect x="34" y="58" width="12" height="16" fill="#5e8197"/></svg></div><div class="milestone__sign"><div class="yr">2023</div><h4>Uflex</h4><p>Marketing intern · Noida</p></div></div>
-        <div class="milestone" data-x="61"><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld"><rect x="22" y="22" width="36" height="52" fill="#c98f8f"/><rect x="28" y="28" width="7" height="7" fill="#ffe9e9"/><rect x="45" y="28" width="7" height="7" fill="#ffe9e9"/><rect x="28" y="40" width="7" height="7" fill="#ffe9e9"/><rect x="45" y="40" width="7" height="7" fill="#ffe9e9"/><rect x="33" y="56" width="14" height="18" fill="#8a5a5a"/></svg></div><div class="milestone__sign"><div class="yr">2024 — 25</div><h4>JSW Steel</h4><p>B2B Sales intern</p></div></div>
-        <div class="milestone" data-x="77"><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld"><rect x="16" y="20" width="48" height="54" fill="#7fa9b0"/><rect x="22" y="26" width="8" height="8" fill="#e6f6f6"/><rect x="36" y="26" width="8" height="8" fill="#e6f6f6"/><rect x="50" y="26" width="8" height="8" fill="#e6f6f6"/><rect x="22" y="40" width="8" height="8" fill="#e6f6f6"/><rect x="36" y="40" width="8" height="8" fill="#e6f6f6"/><rect x="50" y="40" width="8" height="8" fill="#e6f6f6"/><rect x="34" y="58" width="12" height="16" fill="#54787e"/></svg></div><div class="milestone__sign"><div class="yr">2025</div><h4>Maersk Line</h4><p>Customer Experience · Mumbai</p></div></div>
-        <div class="milestone" data-x="92"><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld bld-uni"><rect x="12" y="32" width="56" height="42" fill="#b9a0d8"/><path d="M6 32 40 12 74 34z" fill="#7c63a6"/><rect x="34" y="52" width="12" height="22" fill="#5b4480"/><rect x="20" y="40" width="9" height="9" fill="#efe6fb"/><rect x="51" y="40" width="9" height="9" fill="#efe6fb"/><circle cx="40" cy="24" r="3" fill="#efe6fb"/></svg></div><div class="milestone__sign"><div class="yr">2024 — 2026</div><h4>MBA · IIFT</h4><p>Marketing &amp; Strategy</p></div></div>
+        <div class="milestone" data-x="13"><div class="milestone__sign"><div class="yr">2021 — 2024</div><h4>B.Com (Hons)</h4><p>VIPS, GGSIPU · 8.27</p></div><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld bld-uni"><rect x="14" y="34" width="52" height="40" fill="#b9a0d8"/><path d="M8 34 40 14 72 36z" fill="#7c63a6"/><rect x="36" y="54" width="10" height="20" fill="#5b4480"/><rect x="20" y="42" width="9" height="9" fill="#efe6fb"/><rect x="51" y="42" width="9" height="9" fill="#efe6fb"/><rect x="38" y="6" width="4" height="10" fill="#7c63a6"/></svg></div></div>
+        <div class="milestone" data-x="29"><div class="milestone__sign"><div class="yr">2023</div><h4>MaxKart Beauty</h4><p>Social &amp; Sales intern</p></div><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld"><rect x="18" y="30" width="44" height="44" fill="#e8b06a"/><path d="M14 30 40 14 66 30z" fill="#c98a44"/><rect x="34" y="54" width="12" height="20" fill="#8a5a2e"/><rect x="24" y="38" width="8" height="8" fill="#fff3da"/><rect x="48" y="38" width="8" height="8" fill="#fff3da"/></svg></div></div>
+        <div class="milestone" data-x="45"><div class="milestone__sign"><div class="yr">2023</div><h4>Uflex</h4><p>Marketing intern · Noida</p></div><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld"><rect x="20" y="26" width="40" height="48" fill="#8fb5c9"/><rect x="26" y="32" width="7" height="7" fill="#e8f4fb"/><rect x="37" y="32" width="7" height="7" fill="#e8f4fb"/><rect x="48" y="32" width="7" height="7" fill="#e8f4fb"/><rect x="26" y="44" width="7" height="7" fill="#e8f4fb"/><rect x="37" y="44" width="7" height="7" fill="#e8f4fb"/><rect x="48" y="44" width="7" height="7" fill="#e8f4fb"/><rect x="34" y="58" width="12" height="16" fill="#5e8197"/></svg></div></div>
+        <div class="milestone" data-x="61"><div class="milestone__sign"><div class="yr">2024 — 25</div><h4>JSW Steel</h4><p>B2B Sales intern</p></div><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld"><rect x="22" y="22" width="36" height="52" fill="#c98f8f"/><rect x="28" y="28" width="7" height="7" fill="#ffe9e9"/><rect x="45" y="28" width="7" height="7" fill="#ffe9e9"/><rect x="28" y="40" width="7" height="7" fill="#ffe9e9"/><rect x="45" y="40" width="7" height="7" fill="#ffe9e9"/><rect x="33" y="56" width="14" height="18" fill="#8a5a5a"/></svg></div></div>
+        <div class="milestone" data-x="76"><div class="milestone__sign"><div class="yr">2025</div><h4>Maersk Line</h4><p>Customer Experience · Mumbai</p></div><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld"><rect x="16" y="20" width="48" height="54" fill="#7fa9b0"/><rect x="22" y="26" width="8" height="8" fill="#e6f6f6"/><rect x="36" y="26" width="8" height="8" fill="#e6f6f6"/><rect x="50" y="26" width="8" height="8" fill="#e6f6f6"/><rect x="22" y="40" width="8" height="8" fill="#e6f6f6"/><rect x="36" y="40" width="8" height="8" fill="#e6f6f6"/><rect x="50" y="40" width="8" height="8" fill="#e6f6f6"/><rect x="34" y="58" width="12" height="16" fill="#54787e"/></svg></div></div>
+        <div class="milestone" data-x="90"><div class="milestone__sign"><div class="yr">2024 — 2026</div><h4>MBA · IIFT</h4><p>Marketing &amp; Strategy</p></div><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld bld-uni"><rect x="12" y="32" width="56" height="42" fill="#b9a0d8"/><path d="M6 32 40 12 74 34z" fill="#7c63a6"/><rect x="34" y="52" width="12" height="22" fill="#5b4480"/><rect x="20" y="40" width="9" height="9" fill="#efe6fb"/><rect x="51" y="40" width="9" height="9" fill="#efe6fb"/><circle cx="40" cy="24" r="3" fill="#efe6fb"/></svg></div></div>
+        <div class="milestone milestone--estee" data-x="105"><div class="milestone__sign milestone__sign--star"><div class="yr">Next ✨</div><h4>Estée Lauder</h4><p>hopefully — the dream role</p></div><div class="milestone__art"><div class="billboard"><span class="billboard__brand">ESTĒE<br>LAUDER</span></div></div></div>
       </div>
+      <div class="dog" id="dog"></div>
       <div class="girl" id="girl"></div>
       <p class="scene__hint">scroll to walk →</p>
     </div>
   </section>
 
-  <!-- CONTACT — DETAILED CAMPSITE -->
+  <!-- CONTACT -->
   <section class="contact" id="contact" data-stage="contact">
-    <div class="camp" id="campScene">
+    <div class="camp">
       <div class="camp__sky"></div>
       <div class="clouds"><span class="cloud c1"></span><span class="cloud c2"></span></div>
       <div class="scene__cel sun camp-sun"></div><div class="scene__cel moon camp-moon"><i></i><i></i></div>
@@ -182,6 +203,7 @@
       <div class="camp__ground"></div>
       <div class="camp__glow"></div>
       <div class="camp__scene-svg"></div>
+      <div class="camp__sprite" id="campSprite"></div>
     </div>
     <div class="contact__inner">
       <div class="eyebrow"><span class="idx">06</span><span>Contact</span></div>
@@ -205,7 +227,7 @@
 <div class="filewin" id="fileWin" aria-hidden="true">
   <div class="filewin__bar">
     <div class="filewin__dots"><i></i><i></i><i></i></div>
-    <div class="filewin__path">Portfolio <span>›</span> Work <span>›</span> <b id="fileWinName">Oreo</b></div>
+    <div class="filewin__path">Portfolio <span>›</span> Projects <span>›</span> <b id="fileWinName">Oreo</b></div>
     <button class="filewin__close" id="fileClose" aria-label="Close" data-cursor="close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
   <div class="filewin__body" id="fileBody" data-lenis-prevent>
@@ -216,26 +238,30 @@
       <h1 class="casepanel__title">Oreo Golden<br><em>"Still Golden"</em></h1>
       <p class="casepanel__lead">The original Oreo kids grew up — now 18–30, with deadlines, EMIs and LinkedIn profiles.</p>
       <div class="casepanel__cover"><img src="assets/img/oreo-film.png" alt="Oreo film" /></div>
-      <div class="stats" data-stats>
-        <div class="stat"><div class="stat__num" data-count="18" data-suffix="–30">0</div><div class="stat__label">Age of the audience nobody targeted</div></div>
-        <div class="stat"><div class="stat__num" data-count="4" data-suffix=" films">0</div><div class="stat__label">Interwoven stories of adult moments</div></div>
-        <div class="stat"><div class="stat__num">∞</div><div class="stat__label">Inner children waiting to be remembered</div></div>
-      </div>
       <div class="crow">
         <div class="ccopy"><span class="step"><b>01</b> — The brief</span><h3>The original Oreo kids grew up.</h3>
-          <p>A whole generation grew up twisting, licking and dunking — and started leaving their inner child behind. Oreo Golden is for <strong>them.</strong></p>
-          <p>It holds up a mirror and says: <em>"that kid is still in there. Don't lose them."</em></p></div>
+          <p>Oreo Golden just launched in India. The existing campaign is warm and family-friendly, primarily targeted at children. But there's a whole generation nobody spoke to: <strong>the original Oreo kids</strong> — the 18–30 year olds who grew up twisting, licking and dunking, who now have deadlines, EMIs, and LinkedIn profiles. And somewhere between the hustle and the growing up, they started leaving their inner child behind. Not on purpose but just gradually, without noticing.</p>
+          <p>Oreo Golden is for them. Same playful spirit but slightly more sophisticated taste, just like them. It doesn't ask them to pause or escape. It just holds up a mirror and says: <em>"Hey, that kid is still in there, so don't lose them."</em></p></div>
         <div class="cfig"><img src="assets/img/oreo-packs.png" alt="Oreo packs" /></div>
       </div>
-      <div class="tagblock"><span class="mono">The tagline</span><p>"Bada ho gaya hu par<br>feel toh <em>wahi hai.</em>"</p></div>
+      <div class="crow crow--rev">
+        <div class="cfig"><img src="assets/img/oreo-film.png" alt="Oreo film" /></div>
+        <div class="ccopy"><span class="step"><b>02</b> — Campaign film</span><h3>A short (90–120s) film of relatable adult moments.</h3>
+          <p>The film follows four young adults through an ordinary evening: <strong>an UPSC aspirant</strong> stress-eating through a study session, <strong>a working professional</strong> eating dinner alone in a new city, <strong>a college student</strong> keeping up appearances, and <strong>a girl performing "I'm fine"</strong> on a family video call.</p>
+          <p>In each story, a small unconscious Oreo ritual appears naturally — twisting the biscuit apart, licking the cream first, dunking it three seconds too long, holding the pack while zoning out during a call. A single quick cut for each shows the same rituals by younger hands — some habits and comforts stay unchanged even as life evolves. The film closes with all four reconnecting briefly with a familiar version of themselves over The Golden Oreo pack.</p></div>
+      </div>
+      <div class="tagblock"><span class="mono">The tagline</span><p>"Bada ho gaya hu pr<br>feel toh <em>wahi hai.</em>"</p></div>
+      <span class="step step--lone"><b>03</b> — Digital &amp; social strategy</span>
       <div class="scards">
-        <div class="scard"><span class="t">Weekly</span><h4>Golden Fridays</h4><p>One nostalgic activity each Friday — colouring, cartoons, old games.</p></div>
-        <div class="scard"><span class="t">Series</span><h4>#StillGolden</h4><p>Creators share childhood hobbies they never outgrew.</p></div>
+        <div class="scard"><span class="t">Weekly</span><h4>Golden Fridays</h4><p>Every Friday, Oreo introduces one simple nostalgic activity — colouring, playing games, watching cartoons — encouraging small breaks from routine. Consistent weekly content audiences relate with.</p></div>
+        <div class="scard"><span class="t">Series</span><h4>#StillGolden</h4><p>Celebrities &amp; creators share childhood hobbies they've never outgrown — collecting comics, solving puzzles, old video games — highlighting how some parts of us stay the same as we grow up.</p></div>
         <div class="scard scard--img"><img src="assets/img/oreo-billboards.png" alt="Billboards" /></div>
       </div>
       <div class="report">
-        <div class="report__intro"><span class="step"><b>03</b> — Interactive</span><h3>The Golden Oreo<br><em>Report Card.</em></h3>
-          <p>Generate your own Inner Child Report Card — graded on how well you've held on to your inner child.</p><p class="report__try">Try it →</p></div>
+        <div class="report__intro"><span class="step"><b>04</b> — Interactive brand experience</span><h3>The Golden Oreo<br><em>Report Card.</em></h3>
+          <p>The campaign's main experiential piece. Oreo launches a microsite where users generate their own digital <strong>Inner Child Report Card</strong> by answering a short set of lifestyle questions. It mirrors an actual school report card but replaces academic subjects with playful behavioural categories.</p>
+          <p>To scale participation, Oreo sends customised report cards to creators and highly-engaged participants. It works as both a conversation driver and a shareable social post — relatable, personalised and nostalgia-triggering, helping extend the campaign organically.</p>
+          <p class="report__try">Try the live version →</p></div>
         <div class="reportcard" id="reportCard">
           <div class="reportcard__pin"></div><div class="reportcard__head"><span>THE GOLDEN OREO<br><b>REPORT CARD</b></span></div>
           <div class="reportcard__name"><label>Name <input type="text" id="rcName" maxlength="18" placeholder="your name" /></label><span class="reportcard__date" id="rcDate">Date —</span></div>
@@ -244,54 +270,104 @@
           <button class="reportcard__btn" id="rcRoll" data-cursor="re-grade">↻ Re-grade me</button>
         </div>
       </div>
-      <p class="disclaimer">* A mock campaign, created as a portfolio exercise.</p>
+      <p class="report__legend"><b>Spontaneous Joy</b> — B+. Shows improvement but still checks emails during meals. &nbsp;·&nbsp; <b>Doing Nothing Productively</b> — C. Has forgotten how to be bored. &nbsp;·&nbsp; <b>Laughing For No Reason</b> — A. Natural talent, please preserve. &nbsp;·&nbsp; <b>Twisting Before Licking</b> — A+. Some things never change.</p>
+      <div class="crow crow--rev">
+        <div class="cfig"><img src="assets/img/oreo-billboards.png" alt="Oreo billboards" /></div>
+        <div class="ccopy"><span class="step"><b>05</b> — Physical brand presence</span><h3>Nostalgia packaging &amp; minimalist billboards.</h3>
+          <p><strong>Limited Edition Nostalgia Packaging</strong> — a series of limited-edition packs inspired by things common in the 2010s that have since lost their popularity.</p>
+          <p><strong>Billboards</strong> — minimalist billboards recreate instantly recognisable moments from growing up, using only a visual cue and the Golden Oreo pack.</p></div>
+      </div>
+      <p class="disclaimer">* Please note that this is a mock campaign, created as a portfolio exercise.</p>
+    </div>
+
+    <!-- TURBAN -->
+    <div class="casepanel" data-panel="turban">
+      <span class="casepanel__type">Content Strategy · Social Media · Instagram</span>
+      <h1 class="casepanel__title">Turban</h1>
+      <p class="casepanel__lead">Traditionalistic Urban — a luxury ethnic-wear brand. As Content Strategist &amp; Social Media Manager, I turned a beautiful product into a brand people connect with.</p>
+      <div class="casepanel__cover"><img src="assets/img/turban-slide.png" alt="Turban content strategy" /></div>
+      <div class="stats" data-stats>
+        <div class="stat"><div class="stat__num" data-count="262" data-plain="true">0</div><div class="stat__label">Posts shaped around one consistent world</div></div>
+        <div class="stat"><div class="stat__num" data-count="1765" data-plain="true">0</div><div class="stat__label">Followers — culture-conscious, slow-fashion</div></div>
+        <div class="stat"><div class="stat__num" data-count="25" data-plain="true">0</div><div class="stat__label">Following — intentional, not noisy</div></div>
+      </div>
+      <div class="crow">
+        <div class="ccopy"><span class="step"><b>01</b> — The brief</span><h3>A beautiful product the content wasn't doing justice.</h3>
+          <p>Turban blends traditional Indian textile design with clean, urban silhouettes. Previous posts were repetitive and lacked a clear voice or strategy.</p></div>
+        <div class="ccopy"><span class="step"><b>02</b> — The goal</span><h3>An Instagram presence that feels intentional.</h3>
+          <p>Attract the right audience (25–40, culture-conscious, quality-first, slow-fashion focused), tell the story behind every piece, and turn a beautiful product into a brand people genuinely connect with.</p></div>
+      </div>
+      <div class="ccopy ccopy--full"><span class="step"><b>03</b> — The process</span><h3>Start with the founder, then build the world.</h3>
+        <p>Before touching a single post, I started with the founder — asked what she envisioned, presented different aesthetic directions (earthy luxury, desi maximalism, artisan storytelling) with reference brands for each. We landed on <strong>Indian Quiet Luxury</strong> — minimalist but not dull, culturally rooted, with intentional pops of colour. Then I built a feed inspiration board to translate that vision into a visual language the content could follow consistently.</p></div>
+      <span class="step step--lone"><b>04</b> — The future strategy</span>
+      <div class="scards">
+        <div class="scard"><span class="t">Series</span><h4>Textile Dictionary</h4><p>A KalamKari-style series where each product post tells a cultural story.</p></div>
+        <div class="scard"><span class="t">Community</span><h4>UGC series</h4><p>Bring real customers into the brand story.</p></div>
+        <div class="scard"><span class="t">Growth</span><h4>Creator collabs</h4><p>Culture-forward Instagram collabs once organic engagement benchmarks are met.</p></div>
+      </div>
+      <div class="takeaway"><span class="step">The vision</span><p>Build towards a cohesive brand narrative where every post, reel and story contributes to <em>one consistent world.</em></p></div>
     </div>
 
     <!-- MOKOBARA -->
     <div class="casepanel" data-panel="mokobara">
       <span class="casepanel__type">Brand Analysis</span>
       <h1 class="casepanel__title">Mokobara</h1>
-      <p class="casepanel__lead">They turned luggage into something people want to be <em>seen</em> with.</p>
+      <p class="casepanel__lead">They turned luggage into something people actually want to be <em>seen</em> with.</p>
       <div class="casepanel__cover"><img src="assets/img/moko-luggage.png" alt="Mokobara luggage" /></div>
       <div class="stats" data-stats>
         <div class="stat"><div class="stat__num" data-count="700" data-prefix="₹" data-suffix=" cr">0</div><div class="stat__label">Brand value built since 2020</div></div>
-        <div class="stat"><div class="stat__num" data-count="2" data-prefix="+" data-suffix=" kg">0</div><div class="stat__label">Extra IndiGo luggage — a real benefit</div></div>
-        <div class="stat"><div class="stat__num" data-count="2020" data-plain="true">0</div><div class="stat__label">Founded — spotting an open gap</div></div>
+        <div class="stat"><div class="stat__num" data-count="2" data-prefix="+" data-suffix=" kg">0</div><div class="stat__label">Extra IndiGo luggage — a real functional benefit</div></div>
+        <div class="stat"><div class="stat__num" data-count="2020" data-plain="true">0</div><div class="stat__label">Founded — spotting a gap nobody was filling</div></div>
       </div>
+      <div class="ccopy ccopy--full"><span class="step"><b>01</b> — The brand</span><h3>Basic luggage, turned into something people want to be seen with.</h3>
+        <p>Mokobara turned one of the most basic product categories in India — luggage — into something people actually want to be seen with. Founded in 2020, they spotted a gap nobody was filling: stylish, design-forward travel gear that didn't cost a fortune or look like every other bag. This resulted in a brand worth <strong>₹700 crore</strong> that made Indians care about what they travel with.</p></div>
       <div class="crow crow--rev">
         <div class="cfig"><img src="assets/img/moko-road.png" alt="Mokobara road" /></div>
-        <div class="ccopy"><span class="step"><b>01</b> — What they get right</span><h3>They didn't sell bags. They sold movement.</h3>
-          <p><strong>#GoingPlaces</strong> portrays consumers as people who keep moving forward. The IndiGo collab baked in a real <em>functional benefit.</em></p></div>
+        <div class="ccopy"><span class="step"><b>02</b> — What they're getting right</span><h3>They didn't sell bags. They sold movement.</h3>
+          <p>Mokobara didn't sell bags — they sold the feeling of being someone who's always on the move, always going somewhere. <strong>#GoingPlaces</strong> isn't just a hashtag; it portrays their consumers as people who keep moving forward and exploring. And somehow a suitcase becomes part of that story.</p>
+          <p>The <strong>IndiGo × Mokobara</strong> collaboration was genuinely smart — 2kg extra luggage on IndiGo flights if you own a Mokobara suitcase. Not just co-branding for visibility, but a real <em>functional benefit.</em></p></div>
       </div>
       <div class="crow">
-        <div class="ccopy"><span class="step"><b>02</b> — Where I'd take it</span><h3>Own travel itself — not just the bag.</h3>
-          <p>A <em>#GoingPlaces Guide</em> by real travellers — unexplored places, underrated routes. The bag sells itself after that.</p></div>
+        <div class="ccopy"><span class="step"><b>03</b> — What's unique</span><h3>People buy the version of themselves that owns the thing.</h3>
+          <p>What makes Mokobara genuinely different is that they understood something most product brands miss — people don't buy things, they buy the <em>version of themselves</em> that owns those things. Nobody needs a ₹15,000 suitcase. But they want to be the kind of person who has somewhere exciting to be and moves through the world with a little more style. Mokobara sold that identity so consistently that by the time you notice it, you already want the bag.</p></div>
         <div class="cfig"><img src="assets/img/moko-couple.png" alt="Mokobara lifestyle" /></div>
       </div>
-      <div class="takeaway"><span class="step">The bigger picture</span><p>People buy the <em>version of themselves</em> that owns those things. <strong>That's real brand building.</strong></p></div>
+      <div class="ccopy ccopy--full"><span class="step"><b>04</b> — Where I think there's room to grow</span><h3>Own travel itself — not just the bag.</h3>
+        <p>Honestly, the content is starting to feel a little familiar. What would take it to the next level is <em>serialized storytelling</em> — something like <strong>The Mokobara Diaries</strong>, where real travellers share where they went and why. The bag is in the frame; the story just needs to show up around it.</p>
+        <p>Another thing: own travel itself, not just the bag. Michelin became the world's most trusted food authority to give people a reason to drive more. Mokobara could do the same with a <strong>#GoingPlaces Guide</strong> written by real travellers — unexplored places, underrated routes. Nothing to do with luggage; everything to do with making you want to go somewhere. The bag sells itself after that.</p></div>
+      <div class="takeaway"><span class="step">The bigger picture</span><p>Mokobara became the brand that made a generation of Indians fall back in love with travelling. The product gets you in the door — but the culture they're building around movement, exploration and intentional living is what makes them <em>truly unforgettable.</em> <strong>They built a brand people actually care about in a category where that almost never happens.</strong></p></div>
     </div>
 
     <!-- JACQUEMUS -->
     <div class="casepanel" data-panel="jacquemus">
       <span class="casepanel__type">Brand Analysis</span>
       <h1 class="casepanel__title">Jacquemus</h1>
-      <p class="casepanel__lead">Every luxury brand looks untouchable. Simon decided to look <em>deeply human.</em></p>
+      <p class="casepanel__lead">Every luxury brand tries to look untouchable. Simon decided to look fun, a little weird, and <em>deeply human.</em></p>
       <div class="casepanel__cover"><img src="assets/img/jacquemus-lavender.jpg" alt="Jacquemus" /></div>
       <div class="stats" data-stats>
-        <div class="stat"><div class="stat__num" data-count="19">0</div><div class="stat__label">Age Simon started the brand</div></div>
-        <div class="stat"><div class="stat__num" data-count="350" data-prefix="€" data-suffix="M">0</div><div class="stat__label">Estimated revenue today</div></div>
-        <div class="stat"><div class="stat__num" data-count="900" data-suffix="%">0</div><div class="stat__label">Search spike in a single day</div></div>
+        <div class="stat"><div class="stat__num" data-count="19">0</div><div class="stat__label">Age Simon started the brand — no degree, no money, no connections</div></div>
+        <div class="stat"><div class="stat__num" data-count="350" data-prefix="€" data-suffix="M">0</div><div class="stat__label">Estimated revenue today (≈ €300–350M)</div></div>
+        <div class="stat"><div class="stat__num" data-count="900" data-suffix="%">0</div><div class="stat__label">Search spike in a single day from the CGI clip</div></div>
       </div>
+      <div class="ccopy ccopy--full"><span class="step"><b>01</b> — The brand</span><h3>Started at 19, named after his late mother.</h3>
+        <p>Simon Porte Jacquemus started his brand at 19, named it after his mother who he had just lost — no degree, no money, no connections in the industry. He had his friends walk his clothes through Paris streets during Vogue's Fashion Night Out because he couldn't afford a show. That's where it started. Today the brand does an estimated <strong>€300–350 million</strong> in revenue. Their origin story explains everything about why they do what they do.</p></div>
       <div class="crow">
-        <div class="ccopy"><span class="step"><b>01</b> — What they get right</span><h3>Fun is a legitimate luxury strategy.</h3>
-          <p>The <strong>CGI bags-on-wheels</strong> clip sent searches up <strong>900% in a day.</strong> The Bambino sold out.</p></div>
+        <div class="ccopy"><span class="step"><b>02</b> — What they're getting right</span><h3>Fun is a legitimate luxury strategy.</h3>
+          <p>Every other luxury brand is trying to look expensive and untouchable. Jacquemus decided to look fun, a little weird, and deeply human instead — and that makes people want their bags even more. The <strong>CGI bags-on-wheels</strong> campaign (2023) is my favourite: an 8-second Instagram clip of oversized Bambino bags cruising through Paris, completely unreal. Searches went up <strong>900% in a single day.</strong> The Bambino sold out. That's a brand that genuinely <em>knows who it is.</em></p></div>
         <div class="cfig"><img src="assets/img/jacq-bags-paris.png" alt="Jacquemus CGI bags" /></div>
       </div>
       <div class="cgallery">
         <figure><img src="assets/img/jacquemus-2424.jpg" alt="Jacquemus popup" /></figure>
         <figure><img src="assets/img/jacq-boat.png" alt="Jacquemus bag" /></figure>
       </div>
-      <div class="takeaway"><span class="step">Room to grow</span><p>The one thing missing is <strong>community</strong> — millions follow, but there's no place to belong. Go <em>deeper,</em> not just bigger.</p></div>
+      <div class="crow crow--rev">
+        <div class="cfig"><img src="assets/img/jacquemus-lavender.jpg" alt="Jacquemus show" /></div>
+        <div class="ccopy"><span class="step"><b>03</b> — What's unique</span><h3>Simon doesn't market the brand. He is the brand.</h3>
+          <p>What makes all of this work is Simon himself. He's not just a face the brand uses for marketing — he is the brand. His Provence childhood, his mother, his personal aesthetic — it's all in the DNA of every campaign and show. The blue-tiled pop-up was inspired by his own bathroom; the lavender-field show was his childhood backyard. Most brands try to manufacture authenticity. Jacquemus just <em>has</em> it, because Simon never separated himself from it.</p></div>
+      </div>
+      <div class="ccopy ccopy--full"><span class="step"><b>04</b> — Where I think there's room to grow</span><h3>Go deeper, not just bigger — build a community.</h3>
+        <p>When your whole brand is built on surprise, the audience eventually starts actively looking forward to the next surprise. The hype is still working, but the next chapter for Jacquemus is going <em>deeper,</em> not just bigger. The one thing genuinely missing is a sense of <strong>community</strong> — millions love and follow the brand but there's no real place for them to belong. They're admirers, not insiders. There's an opportunity to build a space where the most passionate fans feel part of the world, not just watching from outside.</p></div>
+      <div class="takeaway"><span class="step">The bigger picture</span><p>What I appreciate most is that Simon basically proved that <em>joy is a legitimate luxury strategy.</em> In a category full of brands trying to look untouchable, he built something that makes you smile — and then charges luxury prices for it, and people pay happily. <strong>That's a completely different understanding of what desire actually feels like today.</strong></p></div>
     </div>
 
   </div>
@@ -299,6 +375,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script src="js/main.js"></script>
 </body>

@@ -8,27 +8,43 @@
   const notMobile = matchMedia("(min-width: 761px)").matches;
   const hasGSAP = typeof gsap !== "undefined";
   if (hasGSAP && typeof ScrollTrigger !== "undefined") gsap.registerPlugin(ScrollTrigger);
+  if (hasGSAP && typeof MotionPathPlugin !== "undefined") gsap.registerPlugin(MotionPathPlugin);
   let lenis = null, cursorAPI = null, modalOpen = false;
 
   /* ---- SVG ART ---- */
-  const GIRL_SVG = `<svg class="girlsvg" viewBox="0 0 64 100">
-    <path class="gs-hairb" d="M13 30C12 13 52 13 51 30 55 51 53 73 46 83 45 72 45 60 44 51 44 62 43 75 40 83 39 72 39 60 38 51 37 64 35 77 32 85 29 77 27 64 26 51 25 60 25 73 24 83 21 75 20 62 20 51 19 60 19 73 18 83 11 72 9 50 13 30Z" fill="#241a16"/>
-    <g class="gs-legB"><rect x="30" y="64" width="7" height="23" rx="3.5" fill="#cf9466"/><path d="M29 85h10l1 8H28z" fill="#46352a"/></g>
-    <g class="gs-armB"><rect x="16" y="47" width="6" height="19" rx="3" fill="#cf9466"/></g>
-    <path d="M20 47C24 42 40 42 44 47L49 73H15Z" fill="#E8C857"/>
-    <path d="M28 46h8v6h-8z" fill="#f3d9b0"/>
-    <path d="M27 50h10l-1 22h-8z" fill="#f7efe1"/>
-    <g class="gs-legF"><rect x="27" y="64" width="7" height="23" rx="3.5" fill="#eeb079"/><path d="M26 85h10l1 8H25z" fill="#5b4632"/></g>
-    <g class="gs-armF"><rect x="42" y="47" width="6" height="19" rx="3" fill="#eeb079"/></g>
-    <circle cx="32" cy="28" r="16" fill="#f3cda3"/>
-    <circle cx="16.5" cy="30" r="2.4" fill="#edbd91"/><circle cx="47.5" cy="30" r="2.4" fill="#edbd91"/>
-    <ellipse cx="25.5" cy="29" rx="1.8" ry="2.2" fill="#2a1d18"/><ellipse cx="38.5" cy="29" rx="1.8" ry="2.2" fill="#2a1d18"/>
-    <circle cx="26.2" cy="28.3" r=".55" fill="#fff"/><circle cx="39.2" cy="28.3" r=".55" fill="#fff"/>
-    <path d="M28.5 34.5Q32 37.5 35.5 34.5" stroke="#b06a52" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-    <circle cx="21" cy="33.5" r="2.7" fill="#f3a39c" opacity=".5"/><circle cx="43" cy="33.5" r="2.7" fill="#f3a39c" opacity=".5"/>
-    <path class="gs-hairf" d="M14 31 C12 7 52 7 50 31 C50 18 44 14 39 16 C38 9 26 9 25 16 C20 14 14 18 14 31 Z" fill="#241a16"/>
-    <path d="M16 30 C15 20 17 13 21 11 C18 19 18 26 19 31 Z" fill="#2f211b"/>
-    <path d="M48 30 C49 20 47 13 43 11 C46 19 46 26 45 31 Z" fill="#2f211b"/>
+  const GIRL_SVG = `<svg class="girlsvg" viewBox="0 0 64 104">
+    <path class="gs-hairb" d="M11 33 C9 12 55 12 53 33 C57 58 54 82 46 94 C45 80 45 66 44 56 C44 68 42 84 39 94 C38 80 38 66 37 56 C36 70 34 86 32 96 C30 86 28 70 27 56 C26 66 26 80 25 94 C22 84 20 68 20 56 C19 66 19 80 18 94 C10 82 7 58 11 33 Z" fill="#2a1c16"/>
+    <g class="gs-legB"><rect x="29" y="66" width="7" height="21" rx="3.5" fill="#d49a6a"/><rect x="27" y="84" width="11" height="6.5" rx="3.2" fill="#46352a"/></g>
+    <g class="gs-armB"><rect x="15" y="49" width="6" height="19" rx="3" fill="#d49a6a"/></g>
+    <path d="M20 49 C24 44 40 44 44 49 L50 78 H14 Z" fill="#E8C857"/>
+    <path d="M26 50 H38 L39 72 H25 Z" fill="#f7efe1" opacity=".9"/>
+    <path d="M28 47 h8 v6 h-8 z" fill="#f3d3a8"/>
+    <g class="gs-legF"><rect x="28" y="66" width="7" height="21" rx="3.5" fill="#efb079"/><rect x="26" y="84" width="11" height="6.5" rx="3.2" fill="#5e4632"/></g>
+    <g class="gs-armF"><rect x="43" y="49" width="6" height="19" rx="3" fill="#efb079"/></g>
+    <circle cx="32" cy="30" r="16.5" fill="#f4cfa6"/>
+    <path class="gs-hairf" d="M14 32 C12 7 52 7 50 32 C50 17 43 13 38 16 C37 8 27 8 26 16 C21 13 14 17 14 32 Z" fill="#2a1c16"/>
+    <path d="M15 33 C14 23 16 16 20 14 C17 23 18 29 19 34 Z" fill="#231711"/>
+    <path d="M49 33 C50 23 48 16 44 14 C47 23 46 29 45 34 Z" fill="#231711"/>
+    <circle cx="16.5" cy="32" r="2.3" fill="#eebf93"/><circle cx="47.5" cy="32" r="2.3" fill="#eebf93"/>
+    <ellipse cx="25.5" cy="31" rx="2" ry="2.5" fill="#241712"/><circle cx="26.3" cy="30.2" r=".6" fill="#fff"/>
+    <ellipse cx="38.5" cy="31" rx="2" ry="2.5" fill="#241712"/><circle cx="39.3" cy="30.2" r=".6" fill="#fff"/>
+    <circle cx="20.5" cy="35" r="2.6" fill="#f2a39b" opacity=".55"/><circle cx="43.5" cy="35" r="2.6" fill="#f2a39b" opacity=".55"/>
+    <path d="M28.5 36.5 Q32 39.5 35.5 36.5" stroke="#b06a52" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  </svg>`;
+  const DOG_SVG = `<svg class="dogsvg" viewBox="0 0 56 46">
+    <path class="dog-tail" d="M9 25 C2 23 0 14 5 10 C7 16 10 21 13 25 Z" fill="#ece2d2"/>
+    <ellipse cx="27" cy="28" rx="17" ry="11.5" fill="#f4ede1"/>
+    <g class="dog-legB"><rect x="17" y="33" width="5" height="11" rx="2.5" fill="#e3d8c5"/></g>
+    <rect x="22" y="35" width="5" height="9" rx="2.5" fill="#e3d8c5"/>
+    <rect x="33" y="35" width="5" height="9" rx="2.5" fill="#f4ede1"/>
+    <g class="dog-legF"><rect x="38" y="33" width="5" height="11" rx="2.5" fill="#f4ede1"/></g>
+    <ellipse cx="32" cy="14" rx="4" ry="6.5" fill="#e0d3bd" transform="rotate(-22 32 14)"/>
+    <ellipse cx="48" cy="14" rx="4" ry="6.5" fill="#e0d3bd" transform="rotate(22 48 14)"/>
+    <circle cx="40" cy="18" r="10.5" fill="#f7f0e6"/>
+    <circle cx="36.5" cy="17.5" r="1.4" fill="#2a1d18"/><circle cx="43.5" cy="17.5" r="1.4" fill="#2a1d18"/>
+    <ellipse cx="40" cy="21.5" rx="1.8" ry="1.3" fill="#3a2a22"/>
+    <path d="M40 22.8 v2.2" stroke="#9a8472" stroke-width="1" stroke-linecap="round"/>
+    <path d="M37.5 25 Q40 27 42.5 25" stroke="#9a8472" stroke-width="1" fill="none" stroke-linecap="round"/>
   </svg>`;
   const CAMP_SVG = `<svg viewBox="0 0 230 150">
     <path d="M118 124 L162 48 L206 124Z" fill="#6f9fb8"/>
@@ -44,20 +60,6 @@
       <rect x="-13" y="3" width="28" height="6" rx="3" fill="#6f553a" transform="rotate(14)"/>
       <path class="cfire-flame" d="M0 6 C-11 -4 -9 -16 0 -26 C9 -16 11 -4 0 6Z" fill="#ff8a3c"/>
       <path class="cfire-flame b" d="M0 3 C-6 -3 -5 -11 0 -18 C5 -11 6 -3 0 3Z" fill="#ffd76b"/>
-    </g>
-    <line x1="56" y1="96" x2="92" y2="104" stroke="#8a6d4a" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="94" cy="104.5" r="3.2" fill="#fff3da"/>
-    <g transform="translate(26,72)">
-      <path d="M3 8 Q16 -7 29 8 Q31 26 24 34 L8 34 Q1 26 3 8Z" fill="#241a16"/>
-      <path d="M7 20 Q16 15 25 20 L28 40 L4 40Z" fill="#E8C857"/>
-      <rect x="6" y="36" width="22" height="7" rx="3.5" fill="#eeb079"/>
-      <rect x="22" y="40" width="9" height="6" rx="3" fill="#5b4632"/>
-      <circle cx="16" cy="13" r="10" fill="#f3cda3"/>
-      <ellipse cx="13" cy="13" rx="1.3" ry="1.6" fill="#2a1d18"/><ellipse cx="19" cy="13" rx="1.3" ry="1.6" fill="#2a1d18"/>
-      <path d="M14 16.5 Q16 18 18 16.5" stroke="#b06a52" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-      <circle cx="10.5" cy="15.5" r="1.8" fill="#f3a39c" opacity=".5"/><circle cx="21.5" cy="15.5" r="1.8" fill="#f3a39c" opacity=".5"/>
-      <path d="M5 13 Q5 0 16 0 Q27 0 27 13 Q22 6 16 7 Q10 6 5 13Z" fill="#241a16"/>
-      <rect x="24" y="20" width="4.5" height="14" rx="2.25" fill="#eeb079" transform="rotate(-32 26 27)"/>
     </g>
   </svg>`;
 
@@ -151,35 +153,47 @@
     gsap.from(".hero__name", { yPercent: 24, opacity: 0, duration: 1.1, ease: "power3.out", delay: .15 });
     gsap.from(".hero__kicker, .hero__row", { opacity: 0, y: 20, duration: .8, stagger: .1, ease: "power2.out", delay: .5 });
     gsap.timeline({ scrollTrigger: { trigger: "#hero", start: "top top", end: "+=115%", scrub: true, pin: true, anticipatePin: 1 } })
-      .to(".hname--l", { xPercent: -118, ease: "power2.in" }, 0)
-      .to(".hname--r", { xPercent: 118, ease: "power2.in" }, 0)
+      .to(".hw-l", { xPercent: -170, ease: "power2.in" }, 0)
+      .to(".hw-r", { xPercent: 170, ease: "power2.in" }, 0)
       .to(".hero__kicker, .hero__row", { opacity: 0, duration: .3 }, 0);
   }
 
   /* ABOUT bullets */
   function initAbout() {
+    const about = document.getElementById("about");
+    if (about) {
+      if (hasGSAP) ScrollTrigger.create({ trigger: about, start: "top 68%", once: true, onEnter: () => about.classList.add("is-in") });
+      else about.classList.add("is-in");
+    }
     if (!hasGSAP || reduce) return;
-    gsap.from(".about__lead", { opacity: 0, y: 40, duration: 1, ease: "power3.out", scrollTrigger: { trigger: ".about__lead", start: "top 85%" } });
-    gsap.utils.toArray("#aboutBullets li").forEach((li) => {
-      gsap.from(li, { opacity: 0, x: -40, duration: .8, ease: "power3.out", scrollTrigger: { trigger: li, start: "top 90%" } });
-      gsap.from(li.querySelector(".tx"), { clipPath: "inset(0 100% 0 0)", duration: .9, ease: "power3.out", delay: .1, scrollTrigger: { trigger: li, start: "top 90%" } });
-    });
+    gsap.from(".about__h", { opacity: 0, y: 40, duration: 1, ease: "power3.out", immediateRender: false, scrollTrigger: { trigger: ".about__h", start: "top 90%" } });
+    gsap.from(".about__p, .about__label", { opacity: 0, y: 24, duration: .8, stagger: .1, ease: "power3.out", immediateRender: false, scrollTrigger: { trigger: ".about__p", start: "top 92%" } });
+    gsap.from("#about .about__bullets li", { opacity: 0, x: -30, duration: .7, stagger: .08, ease: "power3.out", immediateRender: false, scrollTrigger: { trigger: ".about__bullets", start: "top 95%" } });
+    gsap.from(".about__media", { opacity: 0, y: 40, scale: .96, duration: 1, ease: "power3.out", immediateRender: false, scrollTrigger: { trigger: ".about__media", start: "top 90%" } });
   }
 
-  /* FUN FACTS — scroll swirl sequence */
+  /* FUN FACTS — semicircle motion-path sequence (bottom-right → centre → bottom-right) */
   function initFacts() {
     const stage = document.getElementById("factsStage");
     if (!stage) return;
     const cards = [...stage.querySelectorAll(".fcard")];
-    if (!hasGSAP || reduce || !notMobile) { cards.forEach((c) => c.style.opacity = 1); return; }
-    const ins = [{x:-150,y:70,r:-32},{x:150,y:-70,r:34},{x:-130,y:-80,r:26},{x:150,y:70,r:-28},{x:-150,y:50,r:36},{x:140,y:-70,r:-30}];
-    const tl = gsap.timeline({ scrollTrigger: { trigger: "#facts", start: "top top", end: "+=" + (cards.length * 95) + "%", pin: true, scrub: 1, anticipatePin: 1 } });
+    if (!hasGSAP || reduce || !notMobile || typeof MotionPathPlugin === "undefined") { cards.forEach((c) => c.style.opacity = 1); return; }
+    // ONE fluid continuous arc per card (bottom-right → over the top → bottom-left),
+    // no pause at centre; cards overlap so they flow one-by-one like a stream.
+    const R = Math.min(700, innerWidth * 0.47), D = Math.min(300, innerHeight * 0.32);
+    const SEG = 2, STEP = 1; // each card sweeps over SEG; a new one starts every STEP → overlap
+    const total = (cards.length - 1) * STEP + SEG;
+    const tl = gsap.timeline({ defaults: { ease: "none" },
+      scrollTrigger: { trigger: "#facts", start: "top top", end: "+=" + Math.round(total * 78) + "%", pin: true, scrub: 1, anticipatePin: 1 } });
     cards.forEach((card, i) => {
-      const d = ins[i % ins.length];
-      gsap.set(card, { xPercent: d.x, yPercent: d.y, rotation: d.r, scale: .35, opacity: 0 });
-      tl.to(card, { xPercent: 0, yPercent: 0, rotation: 0, scale: 1, opacity: 1, duration: 1, ease: "power3.out" })
-        .to(card, {}, "+=0.4")
-        .to(card, { xPercent: -d.x, yPercent: -d.y, rotation: -d.r, scale: .35, opacity: 0, duration: 1, ease: "power3.in" });
+      gsap.set(card, { opacity: 0 });
+      const seg = gsap.timeline();
+      seg.set(card, { x: R, y: D, rotation: -24, scale: .38 }, 0);
+      seg.to(card, { motionPath: { path: [{ x: R, y: D }, { x: R * 0.52, y: -D * 1.18 }, { x: 0, y: -D * 0.04 }, { x: -R * 0.52, y: -D * 1.18 }, { x: -R, y: D }], curviness: 1.25 }, duration: SEG }, 0);
+      seg.to(card, { rotation: 24, duration: SEG }, 0);
+      seg.to(card, { scale: 1, duration: SEG / 2, ease: "sine.inOut" }, 0).to(card, { scale: .38, duration: SEG / 2, ease: "sine.inOut" }, ">");
+      seg.to(card, { opacity: 1, duration: .28 }, 0).to(card, { opacity: 0, duration: .28 }, SEG - 0.28);
+      tl.add(seg, i * STEP);
     });
   }
 
@@ -188,7 +202,7 @@
     const win = document.getElementById("fileWin"), close = document.getElementById("fileClose"),
       nameEl = document.getElementById("fileWinName"), body = document.getElementById("fileBody");
     if (!win) return;
-    const names = { oreo: "Oreo", mokobara: "Mokobara", jacquemus: "Jacquemus" };
+    const names = { oreo: "Oreo", turban: "Turban", mokobara: "Mokobara", jacquemus: "Jacquemus" };
     window.openCase = function (key) {
       win.querySelectorAll(".casepanel").forEach((p) => p.classList.toggle("is-active", p.getAttribute("data-panel") === key));
       if (nameEl) nameEl.textContent = (names[key] || key) + " — case study";
@@ -201,17 +215,15 @@
     function closeCase(){ win.classList.remove("is-open"); win.setAttribute("aria-hidden", "true"); modalOpen = false; if (lenis) lenis.start(); document.body.style.overflow = ""; }
     close.addEventListener("click", closeCase);
     addEventListener("keydown", (e) => { if (e.key === "Escape" && modalOpen) closeCase(); });
-    document.querySelectorAll(".folder").forEach((f) => f.addEventListener("click", () => window.openCase(f.getAttribute("data-case"))));
+    document.querySelectorAll(".pcard").forEach((f) => f.addEventListener("click", () => window.openCase(f.getAttribute("data-case"))));
     if (cursorAPI) win.querySelectorAll("a,button,[data-cursor],input").forEach(cursorAPI.bind);
   }
 
-  /* FOLDERS open/close one-by-one on scroll */
-  function initFolders() {
-    const folders = [...document.querySelectorAll(".folder")];
-    if (!folders.length || !hasGSAP || reduce) return;
-    ScrollTrigger.create({ trigger: "#projects", start: "top 70%", end: "bottom 60%", scrub: true,
-      onUpdate(self){ const idx = Math.min(folders.length - 1, Math.floor(self.progress * folders.length));
-        folders.forEach((f,i) => f.classList.toggle("is-open", i === idx)); } });
+  /* PROJECTS reveal */
+  function initProjects() {
+    if (!hasGSAP || reduce) return;
+    gsap.utils.toArray(".pcard").forEach((el, i) =>
+      gsap.from(el, { opacity: 0, y: 40, duration: .7, ease: "power3.out", delay: i * .08, scrollTrigger: { trigger: ".projects__row", start: "top 88%" } }));
   }
 
   /* SKILLS reveal */
@@ -229,7 +241,16 @@
       title = document.getElementById("journeyTitle"), girl = document.getElementById("girl"),
       milestones = [...document.querySelectorAll("#journeyWorld .milestone")];
     if (!scene || !world) return;
-    if (girl) girl.innerHTML = GIRL_SVG;
+    if (girl) {
+      girl.innerHTML = '<img class="girlframe" id="girlFrame" alt="" />';
+      const gf = document.getElementById("girlFrame");
+      const frames = []; for (let i = 1; i <= 20; i++) frames.push("assets/img/sprite/walk-" + String(i).padStart(2, "0") + ".png");
+      frames.forEach((src) => { const im = new Image(); im.src = src; });
+      gf.src = frames[0];
+      let fi = 0;
+      if (!reduce) setInterval(() => { fi = (fi + 1) % frames.length; gf.src = frames[fi]; }, 60);
+    }
+    const dog = document.getElementById("dog"); if (dog) dog.innerHTML = DOG_SVG;
     const stars = document.getElementById("journeyStars");
     if (stars) for (let i = 0; i < 70; i++){ const s = document.createElement("i"); s.style.left = Math.random()*100+"%"; s.style.top = Math.random()*55+"%"; s.style.animationDelay = (Math.random()*3)+"s"; stars.appendChild(s); }
     milestones.forEach((m) => m.style.left = m.dataset.x + "%");
@@ -252,10 +273,10 @@
       if (near && best < 0.13 && title){ const h = near.querySelector("h4"); if (h && title.textContent !== h.textContent) title.textContent = h.textContent; }
     }
     if (hasGSAP && !reduce && notMobile) {
-      ScrollTrigger.create({ trigger: "#journey", start: "top top", end: "+=220%", pin: true, scrub: 1, anticipatePin: 1,
-        onUpdate(self){ place(0.32 - self.progress * 1.2); } });
-      place(0.32);
-    } else { place(-0.2); }
+      ScrollTrigger.create({ trigger: "#journey", start: "top top", end: "+=260%", pin: true, scrub: 1, anticipatePin: 1,
+        onUpdate(self){ place(0.33 - self.progress * 0.92); } });
+      place(0.33);
+    } else { place(-0.1); }
   }
 
   /* CAMP */
@@ -264,6 +285,16 @@
     if (stars) for (let i = 0; i < 55; i++){ const s = document.createElement("i"); s.style.left = Math.random()*100+"%"; s.style.top = Math.random()*60+"%"; s.style.animationDelay = (Math.random()*3)+"s"; stars.appendChild(s); }
     const svg = document.querySelector(".camp__scene-svg");
     if (svg) svg.innerHTML = CAMP_SVG;
+    const sprite = document.getElementById("campSprite");
+    if (sprite) {
+      sprite.innerHTML = '<img id="campFrame" alt="" />';
+      const cf = document.getElementById("campFrame");
+      const idle = []; for (let i = 1; i <= 16; i++) idle.push("assets/img/sprite/idle-" + String(i).padStart(2, "0") + ".png");
+      idle.forEach((s) => { const im = new Image(); im.src = s; });
+      cf.src = idle[0];
+      let ci = 0;
+      if (!reduce) setInterval(() => { ci = (ci + 1) % idle.length; cf.src = idle[ci]; }, 120);
+    }
   }
 
   /* MAGNETIC */
@@ -308,7 +339,7 @@
   function step(name, fn){ try { fn(); } catch (e) { console.error("INIT FAIL @ " + name + ": " + (e && e.message) + "\n" + (e && e.stack)); } }
   function init() {
     step("theme",initTheme); step("lenis",initLenis); step("rail",initRail); step("cursor",initCursor); step("magnetic",initMagnetic);
-    step("hero",initHero); step("about",initAbout); step("facts",initFacts); step("modal",initModal); step("folders",initFolders); step("skills",initSkills);
+    step("hero",initHero); step("about",initAbout); step("facts",initFacts); step("modal",initModal); step("projects",initProjects); step("skills",initSkills);
     step("journey",initJourney); step("camp",initCamp); step("reportcard",initReportCard);
     if (hasGSAP) { ScrollTrigger.refresh(); setTimeout(() => ScrollTrigger.refresh(), 500); }
   }
