@@ -177,24 +177,28 @@
     const stage = document.getElementById("factsStage");
     if (!stage) return;
     const cards = [...stage.querySelectorAll(".fcard")];
-    if (!hasGSAP || reduce || !notMobile || typeof MotionPathPlugin === "undefined") { cards.forEach((c) => c.style.opacity = 1); return; }
-    // ONE fluid continuous arc per card (bottom-right → over the top → bottom-left),
-    // no pause at centre; cards overlap so they flow one-by-one like a stream.
-    const R = Math.min(700, innerWidth * 0.47), D = Math.min(300, innerHeight * 0.32);
-    const SEG = 2, STEP = 1; // each card sweeps over SEG; a new one starts every STEP → overlap
-    const total = (cards.length - 1) * STEP + SEG;
-    const tl = gsap.timeline({ defaults: { ease: "none" },
-      scrollTrigger: { trigger: "#facts", start: "top top", end: "+=" + Math.round(total * 78) + "%", pin: true, scrub: 1, anticipatePin: 1 } });
-    cards.forEach((card, i) => {
-      gsap.set(card, { opacity: 0 });
-      const seg = gsap.timeline();
-      seg.set(card, { x: R, y: D, rotation: -24, scale: .38 }, 0);
-      seg.to(card, { motionPath: { path: [{ x: R, y: D }, { x: R * 0.52, y: -D * 1.18 }, { x: 0, y: -D * 0.04 }, { x: -R * 0.52, y: -D * 1.18 }, { x: -R, y: D }], curviness: 1.25 }, duration: SEG }, 0);
-      seg.to(card, { rotation: 24, duration: SEG }, 0);
-      seg.to(card, { scale: 1, duration: SEG / 2, ease: "sine.inOut" }, 0).to(card, { scale: .38, duration: SEG / 2, ease: "sine.inOut" }, ">");
-      seg.to(card, { opacity: 1, duration: .28 }, 0).to(card, { opacity: 0, duration: .28 }, SEG - 0.28);
-      tl.add(seg, i * STEP);
-    });
+    if (!hasGSAP || reduce || !isDesktop) { cards.forEach((c) => c.style.opacity = 1); return; }
+    // Reverse-U arch conveyor: cards sit along a single ∩ arch (peak card biggest),
+    // a fan that flows from the bottom-right corner → peak → bottom-left as you scroll.
+    const N = cards.length;
+    const R = Math.min(660, innerWidth * 0.42);
+    const BASE = Math.min(250, innerHeight * 0.28);
+    const PEAK = Math.min(210, innerHeight * 0.23);
+    const minS = 0.5, maxS = 1.0, SPACING = 0.16;
+    const TRAVEL = 1 + N * SPACING;
+    function setCard(card, t) {
+      if (t < -0.08 || t > 1.08) { card.style.opacity = 0; return; }
+      const tc = Math.min(1, Math.max(0, t)), a = Math.PI * tc;
+      let op = 1;
+      if (t < 0.05) op = Math.max(0, (t + 0.08) / 0.13);
+      else if (t > 0.95) op = Math.max(0, (1.08 - t) / 0.13);
+      gsap.set(card, { x: R * Math.cos(a), y: BASE - (BASE + PEAK) * Math.sin(a),
+        scale: minS + (maxS - minS) * Math.sin(a), rotation: (0.5 - tc) * 22,
+        opacity: op, zIndex: Math.round(Math.sin(a) * 100) });
+    }
+    ScrollTrigger.create({ trigger: "#facts", start: "top top", end: "+=" + (N * 50) + "%", pin: true, scrub: 1, anticipatePin: 1,
+      onUpdate(self) { const S = self.progress * TRAVEL; cards.forEach((card, i) => setCard(card, S - i * SPACING)); } });
+    cards.forEach((card, i) => setCard(card, -i * SPACING));
   }
 
   /* FILE WINDOW modal */
@@ -242,13 +246,11 @@
       milestones = [...document.querySelectorAll("#journeyWorld .milestone")];
     if (!scene || !world) return;
     if (girl) {
-      girl.innerHTML = '<img class="girlframe" id="girlFrame" alt="" />';
-      const gf = document.getElementById("girlFrame");
       const frames = []; for (let i = 1; i <= 20; i++) frames.push("assets/img/sprite/walk-" + String(i).padStart(2, "0") + ".png");
-      frames.forEach((src) => { const im = new Image(); im.src = src; });
-      gf.src = frames[0];
+      girl.innerHTML = frames.map((s, i) => '<img class="spriteframe' + (i === 0 ? " on" : "") + '" src="' + s + '" alt="" />').join("");
+      const imgs = girl.querySelectorAll(".spriteframe");
       let fi = 0;
-      if (!reduce) setInterval(() => { fi = (fi + 1) % frames.length; gf.src = frames[fi]; }, 60);
+      if (imgs.length) setInterval(() => { imgs[fi].classList.remove("on"); fi = (fi + 1) % imgs.length; imgs[fi].classList.add("on"); }, 60);
     }
     const dog = document.getElementById("dog"); if (dog) dog.innerHTML = DOG_SVG;
     const stars = document.getElementById("journeyStars");
@@ -287,13 +289,11 @@
     if (svg) svg.innerHTML = CAMP_SVG;
     const sprite = document.getElementById("campSprite");
     if (sprite) {
-      sprite.innerHTML = '<img id="campFrame" alt="" />';
-      const cf = document.getElementById("campFrame");
       const idle = []; for (let i = 1; i <= 16; i++) idle.push("assets/img/sprite/idle-" + String(i).padStart(2, "0") + ".png");
-      idle.forEach((s) => { const im = new Image(); im.src = s; });
-      cf.src = idle[0];
+      sprite.innerHTML = idle.map((s, i) => '<img class="spriteframe' + (i === 0 ? " on" : "") + '" src="' + s + '" alt="" />').join("");
+      const imgs = sprite.querySelectorAll(".spriteframe");
       let ci = 0;
-      if (!reduce) setInterval(() => { ci = (ci + 1) % idle.length; cf.src = idle[ci]; }, 120);
+      if (imgs.length) setInterval(() => { imgs[ci].classList.remove("on"); ci = (ci + 1) % imgs.length; imgs[ci].classList.add("on"); }, 120);
     }
   }
 

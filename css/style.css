@@ -141,6 +141,15 @@ section{position:relative;padding:clamp(7rem,16vh,14rem) var(--pad)}
 
 /* HERO */
 .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;transition:background .8s var(--ease)}
+.hero::after{animation:heroGlow 14s ease-in-out infinite alternate}
+@keyframes heroGlow{from{transform:translate(0,0) scale(1)}to{transform:translate(-3%,2%) scale(1.08)}}
+html[data-theme="dark"] .hero::after{background:
+  radial-gradient(85% 120% at 96% 40%, rgba(96,150,235,.85) 0%, rgba(64,108,196,.55) 24%, rgba(42,74,150,.28) 46%, rgba(30,52,110,.10) 64%, transparent 78%),
+  radial-gradient(60% 80% at 4% 94%, rgba(232,200,87,.20) 0%, transparent 58%)}
+html[data-theme="light"] .hero::after{background:
+  radial-gradient(85% 120% at 96% 38%, rgba(124,169,199,.85) 0%, rgba(232,200,87,.5) 24%, rgba(124,169,199,.34) 46%, rgba(124,169,199,.12) 64%, transparent 78%),
+  radial-gradient(60% 80% at 4% 94%, rgba(232,200,87,.34) 0%, transparent 60%)}
 .hero__kicker{position:absolute;top:clamp(6rem,12vh,9rem);left:var(--pad);max-width:24ch}
 .hero__kicker p{font-size:.9rem;color:var(--text-soft)}
 .hero__name{display:inline-flex;align-self:center;align-items:baseline;flex-wrap:nowrap;gap:.32em;
@@ -236,7 +245,7 @@ section{position:relative;padding:clamp(7rem,16vh,14rem) var(--pad)}
 .fcard__back p{font-size:.92rem;line-height:1.55}
 .facts2__hint{position:absolute;bottom:clamp(3rem,6vh,4rem);left:50%;transform:translateX(-50%);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-soft);z-index:4}
 .facts2__mobile{display:none}
-@media (max-width:760px){
+@media (max-width:900px){
   .facts2{height:auto;padding:clamp(5rem,11vh,8rem) var(--pad) 7rem}
   .facts2__head{position:static}.facts2__stage,.facts2__hint{display:none}
   .facts2__mobile{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
@@ -360,7 +369,8 @@ section{position:relative;padding:clamp(7rem,16vh,14rem) var(--pad)}
 .skchips{display:flex;flex-wrap:wrap;gap:.6rem}
 .skchips span{border:1px solid var(--line);border-radius:40px;padding:.5rem 1rem;font-size:.85rem;transition:.35s var(--ease);background:color-mix(in srgb,var(--accent-2) 6%,transparent)}
 .skchips span:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
-.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:1rem}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:420px}
+@media (max-width:560px){ .tools{grid-template-columns:repeat(3,1fr)} }
 .tool{display:flex;flex-direction:column;align-items:center;gap:.7rem;padding:1.4rem .8rem;border:1px solid var(--line);border-radius:var(--radius);
   transition:.4s var(--ease);background:var(--bg-2)}
 .tool:hover{border-color:var(--accent);transform:translateY(-6px) scale(1.03)}
@@ -517,10 +527,12 @@ html[data-theme="dark"] .clouds{opacity:0}
 @keyframes sunpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.13)}}
 .scene__ground,.camp__ground{background:linear-gradient(#a7d49b,#92c386)}
 html[data-theme="dark"] .scene__ground,html[data-theme="dark"] .camp__ground{background:linear-gradient(#2f5e3d,#264c32)}
-/* character (walk-cycle sprite) */
+/* character (walk-cycle sprite, stacked frames) */
 .girl{position:absolute;bottom:14%;left:46%;width:auto;height:clamp(82px,11vw,128px);z-index:5;
   transform:translateX(-50%);filter:drop-shadow(0 7px 5px rgba(0,0,0,.28))}
-.girlframe{height:100%;width:auto;display:block}
+.spriteframe{height:100%;width:auto;display:block;opacity:0}
+.spriteframe.on{opacity:1}
+.spriteframe:not(:first-child){position:absolute;inset:0;width:100%;height:100%}
 .girlsvg{width:100%;height:auto;display:block;overflow:visible}
 .girlsvg g{transform-box:fill-box;transform-origin:top center}
 .gs-legF,.gs-armB{animation:gswingA .56s ease-in-out infinite}
@@ -554,7 +566,6 @@ html[data-theme="dark"] .camp__glow{background:radial-gradient(closest-side,rgba
 .camp__scene-svg svg{width:100%;height:auto;display:block;overflow:visible}
 .camp__sprite{position:absolute;right:34%;bottom:23%;height:clamp(64px,8vw,98px);width:auto;z-index:4;
   transform:scaleX(-1);filter:drop-shadow(0 6px 5px rgba(0,0,0,.28))}
-.camp__sprite img{height:100%;width:auto;display:block}
 @media (max-width:760px){ .camp__sprite{right:46%;bottom:20%} }
 .cfire-flame{transform-box:fill-box;transform-origin:bottom center;animation:cflame .5s ease-in-out infinite alternate}
 .cfire-flame.b{animation-duration:.38s}
