@@ -7,7 +7,7 @@
   const isDesktop = matchMedia("(min-width: 901px)").matches;
   const notMobile = matchMedia("(min-width: 761px)").matches;
   const hasGSAP = typeof gsap !== "undefined";
-  if (hasGSAP && typeof ScrollTrigger !== "undefined") gsap.registerPlugin(ScrollTrigger);
+  if (hasGSAP && typeof ScrollTrigger !== "undefined") { gsap.registerPlugin(ScrollTrigger); ScrollTrigger.config({ ignoreMobileResize: true }); }
   if (hasGSAP && typeof MotionPathPlugin !== "undefined") gsap.registerPlugin(MotionPathPlugin);
   let lenis = null, cursorAPI = null, modalOpen = false;
 
@@ -267,17 +267,23 @@
     for (let i = 0; i < 12; i++){ const f = document.createElement("div"); f.className = "firefly"; f.style.left = (Math.random()*100)+"%"; f.style.bottom = (20 + Math.random()*30)+"%"; f.style.animationDelay = (Math.random()*6)+"s"; world.appendChild(f); }
     for (let i = 0; i < 3; i++){ const b = document.createElement("div"); b.className = "critter bird"; b.style.animationDelay = (i*3)+"s"; scene.appendChild(b); }
 
+    // On narrow screens stretch the world so milestones keep breathing room,
+    // and line the sprite/sign check up with the girl's CSS position (50% on mobile, 46% desktop).
+    const W = notMobile ? 1 : 2.4, CENTER = notMobile ? 0.46 : 0.5;
+    if (!notMobile) world.style.width = (W * 100) + "%";
     function place(tx){
       world.style.transform = `translateX(${tx*100}vw)`;
       let near = null, best = 1;
-      milestones.forEach((m) => { const sx = (parseFloat(m.dataset.x)/100) + tx; const d = Math.abs(sx - 0.46);
+      milestones.forEach((m) => { const sx = (parseFloat(m.dataset.x)/100)*W + tx; const d = Math.abs(sx - CENTER);
         m.classList.toggle("is-near", d < 0.09); if (d < best){ best = d; near = m; } });
       if (near && best < 0.13 && title){ const h = near.querySelector("h4"); if (h && title.textContent !== h.textContent) title.textContent = h.textContent; }
     }
-    if (hasGSAP && !reduce && notMobile) {
-      ScrollTrigger.create({ trigger: "#journey", start: "top top", end: "+=260%", pin: true, scrub: 1, anticipatePin: 1,
-        onUpdate(self){ place(0.33 - self.progress * 0.92); } });
-      place(0.33);
+    const startTx = CENTER - 0.13 * W;                                   // first milestone at the sprite
+    const endTx = notMobile ? startTx - 0.92 : CENTER - 0.9 * W - 0.12;  // walk just past the last one
+    if (hasGSAP && !reduce) {
+      ScrollTrigger.create({ trigger: "#journey", start: "top top", end: "+=" + (notMobile ? 260 : 320) + "%", pin: true, scrub: 1, anticipatePin: 1,
+        onUpdate(self){ place(startTx + self.progress * (endTx - startTx)); } });
+      place(startTx);
     } else { place(-0.1); }
   }
 

@@ -148,8 +148,9 @@ html[data-theme="dark"] .hero::after{background:
   radial-gradient(85% 120% at 96% 40%, rgba(96,150,235,.85) 0%, rgba(64,108,196,.55) 24%, rgba(42,74,150,.28) 46%, rgba(30,52,110,.10) 64%, transparent 78%),
   radial-gradient(60% 80% at 4% 94%, rgba(232,200,87,.20) 0%, transparent 58%)}
 html[data-theme="light"] .hero::after{background:
-  radial-gradient(85% 120% at 96% 38%, rgba(124,169,199,.85) 0%, rgba(232,200,87,.5) 24%, rgba(124,169,199,.34) 46%, rgba(124,169,199,.12) 64%, transparent 78%),
-  radial-gradient(60% 80% at 4% 94%, rgba(232,200,87,.34) 0%, transparent 60%)}
+  radial-gradient(85% 120% at 96% 38%, rgba(255,170,102,.8) 0%, rgba(255,134,120,.5) 22%, rgba(250,200,90,.34) 44%, rgba(150,200,230,.16) 64%, transparent 80%),
+  radial-gradient(60% 80% at 4% 94%, rgba(255,200,100,.42) 0%, rgba(255,150,130,.18) 38%, transparent 64%),
+  radial-gradient(55% 70% at 28% 6%, rgba(150,205,235,.35) 0%, transparent 60%)}
 .hero__kicker{position:absolute;top:clamp(6rem,12vh,9rem);left:var(--pad);max-width:24ch}
 .hero__kicker p{font-size:.9rem;color:var(--text-soft)}
 .hero__name{display:inline-flex;align-self:center;align-items:baseline;flex-wrap:nowrap;gap:.32em;
@@ -501,7 +502,7 @@ html[data-theme="dark"] .camp__stars{opacity:1}
 .contact__top:hover{background:var(--invert);color:var(--invert-text)}
 
 @media (max-width:760px){
-  .journey{height:auto;min-height:90vh}
+  .journey{height:100vh;height:100svh}
   .girl{left:50%}
 }
 /* ===== DETAILED SCENE UPGRADES (override basic v4) ===== */
@@ -587,6 +588,6 @@ html[data-theme="dark"] .camp__glow{background:radial-gradient(closest-side,rgba
 .ccopy--full p{max-width:74ch}
 .report__legend{font-size:.84rem;line-height:1.7;color:var(--text-soft);margin:.4rem 0 clamp(1.6rem,4vh,2.6rem)}
 .report__legend b{color:var(--accent-2);font-weight:600}
-@media (max-width:760px){ .journey{height:78vh} .girl{left:50%} .dog{left:40%} .camp__scene-svg{right:2%;width:64vw;bottom:18%} }
+@media (max-width:760px){ .girl{left:50%} .dog{left:40%} .camp__scene-svg{right:2%;width:64vw;bottom:18%} }
 
 @media (prefers-reduced-motion:reduce){ *{animation:none !important;transition-duration:.01ms !important} }
