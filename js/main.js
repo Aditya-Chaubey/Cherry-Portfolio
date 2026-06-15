@@ -206,7 +206,7 @@
     const win = document.getElementById("fileWin"), close = document.getElementById("fileClose"),
       nameEl = document.getElementById("fileWinName"), body = document.getElementById("fileBody");
     if (!win) return;
-    const names = { oreo: "Oreo", turban: "Turban", mokobara: "Mokobara", jacquemus: "Jacquemus" };
+    const names = { deconstruct: "Deconstruct", oreo: "Oreo", turban: "Turban", mokobara: "Mokobara", jacquemus: "Jacquemus" };
     window.openCase = function (key) {
       win.querySelectorAll(".casepanel").forEach((p) => p.classList.toggle("is-active", p.getAttribute("data-panel") === key));
       if (nameEl) nameEl.textContent = (names[key] || key) + " — case study";
@@ -228,6 +228,23 @@
     if (!hasGSAP || reduce) return;
     gsap.utils.toArray(".pcard").forEach((el, i) =>
       gsap.from(el, { opacity: 0, y: 40, duration: .7, ease: "power3.out", delay: i * .08, scrollTrigger: { trigger: ".projects__row", start: "top 88%" } }));
+  }
+
+  /* PROJECTS horizontal carousel */
+  function initProjectsCarousel() {
+    const row = document.getElementById("projectsRow"),
+      prev = document.getElementById("projPrev"), next = document.getElementById("projNext");
+    if (!row || !prev || !next) return;
+    function step(){ const card = row.querySelector(".pcard"); const cs = getComputedStyle(row);
+      const gap = parseFloat(cs.columnGap || cs.gap) || 12;
+      return card ? card.getBoundingClientRect().width + gap : row.clientWidth * 0.8; }
+    function update(){ const max = row.scrollWidth - row.clientWidth - 2;
+      prev.classList.toggle("is-off", row.scrollLeft <= 2);
+      next.classList.toggle("is-off", max <= 2 || row.scrollLeft >= max); }
+    prev.addEventListener("click", () => row.scrollBy({ left: -step(), behavior: "smooth" }));
+    next.addEventListener("click", () => row.scrollBy({ left:  step(), behavior: "smooth" }));
+    row.addEventListener("scroll", update, { passive: true });
+    addEventListener("resize", update); update();
   }
 
   /* SKILLS reveal */
@@ -278,10 +295,14 @@
         m.classList.toggle("is-near", d < 0.09); if (d < best){ best = d; near = m; } });
       if (near && best < 0.13 && title){ const h = near.querySelector("h4"); if (h && title.textContent !== h.textContent) title.textContent = h.textContent; }
     }
-    const startTx = CENTER - 0.13 * W;                                   // first milestone at the sprite
-    const endTx = notMobile ? startTx - 0.92 : CENTER - 0.9 * W - 0.12;  // walk just past the last one
+    // Derive travel from the actual first/last milestone so the walk starts on the first
+    // and ends centred on the last, whatever the world width or milestone count.
+    const xs = milestones.map((m) => parseFloat(m.dataset.x) / 100);
+    const firstX = xs.length ? Math.min(...xs) : 0.13, lastX = xs.length ? Math.max(...xs) : 1.05;
+    const startTx = CENTER - firstX * W;   // first milestone at the sprite
+    const endTx = CENTER - lastX * W;      // last milestone at the sprite
     if (hasGSAP && !reduce) {
-      ScrollTrigger.create({ trigger: "#journey", start: "top top", end: "+=" + (notMobile ? 260 : 320) + "%", pin: true, scrub: 1, anticipatePin: 1,
+      ScrollTrigger.create({ trigger: "#journey", start: "top top", end: "+=" + (notMobile ? 280 : 460) + "%", pin: true, scrub: 1, anticipatePin: 1,
         onUpdate(self){ place(startTx + self.progress * (endTx - startTx)); } });
       place(startTx);
     } else { place(-0.1); }
@@ -345,7 +366,7 @@
   function step(name, fn){ try { fn(); } catch (e) { console.error("INIT FAIL @ " + name + ": " + (e && e.message) + "\n" + (e && e.stack)); } }
   function init() {
     step("theme",initTheme); step("lenis",initLenis); step("rail",initRail); step("cursor",initCursor); step("magnetic",initMagnetic);
-    step("hero",initHero); step("about",initAbout); step("facts",initFacts); step("modal",initModal); step("projects",initProjects); step("skills",initSkills);
+    step("hero",initHero); step("about",initAbout); step("facts",initFacts); step("modal",initModal); step("projects",initProjects); step("projectsCarousel",initProjectsCarousel); step("skills",initSkills);
     step("journey",initJourney); step("camp",initCamp); step("reportcard",initReportCard);
     if (hasGSAP) { ScrollTrigger.refresh(); setTimeout(() => ScrollTrigger.refresh(), 500); }
   }

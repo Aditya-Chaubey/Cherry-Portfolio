@@ -136,11 +136,16 @@
         <h2 class="projects__title">Projects</span></h2></div>
       <p class="projects__hint">click a project to open ↗</p>
     </div>
-    <div class="projects__row" id="projectsRow">
-      <button class="pcard" data-case="oreo" data-cursor="open"><div class="pcard__img"><img src="assets/img/thumb-oreo.jpg" alt="Oreo"/></div><div class="pcard__meta"><span class="pcard__name">Oreo — Still Golden</span><span class="pcard__cat">Brand Campaign</span></div></button>
-      <button class="pcard" data-case="turban" data-cursor="open"><div class="pcard__img"><img src="assets/img/thumb-turban.jpg" alt="Turban"/></div><div class="pcard__meta"><span class="pcard__name">Turban</span><span class="pcard__cat">Content Strategy</span></div></button>
-      <button class="pcard" data-case="mokobara" data-cursor="open"><div class="pcard__img"><img src="assets/img/thumb-mokobara.jpg" alt="Mokobara"/></div><div class="pcard__meta"><span class="pcard__name">Mokobara</span><span class="pcard__cat">Brand Analysis</span></div></button>
-      <button class="pcard" data-case="jacquemus" data-cursor="open"><div class="pcard__img"><img src="assets/img/thumb-jacquemus.jpg" alt="Jacquemus"/></div><div class="pcard__meta"><span class="pcard__name">Jacquemus</span><span class="pcard__cat">Brand Analysis</span></div></button>
+    <div class="projects__carousel">
+      <button class="projects__arrow projects__arrow--prev is-off" id="projPrev" aria-label="Scroll to previous projects" data-cursor="prev"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <div class="projects__row" id="projectsRow">
+        <button class="pcard" data-case="deconstruct" data-cursor="open"><div class="pcard__img"><img src="assets/img/decon_showcase.jpg" alt="Deconstruct"/></div><div class="pcard__meta"><span class="pcard__name">Deconstruct</span><span class="pcard__cat">Brand Analysis</span></div></button>
+        <button class="pcard" data-case="oreo" data-cursor="open"><div class="pcard__img"><img src="assets/img/thumb-oreo.jpg" alt="Oreo"/></div><div class="pcard__meta"><span class="pcard__name">Oreo — Still Golden</span><span class="pcard__cat">Brand Campaign</span></div></button>
+        <button class="pcard" data-case="turban" data-cursor="open"><div class="pcard__img"><img src="assets/img/thumb-turban.jpg" alt="Turban"/></div><div class="pcard__meta"><span class="pcard__name">Turban</span><span class="pcard__cat">Content Strategy</span></div></button>
+        <button class="pcard" data-case="mokobara" data-cursor="open"><div class="pcard__img"><img src="assets/img/thumb-mokobara.jpg" alt="Mokobara"/></div><div class="pcard__meta"><span class="pcard__name">Mokobara</span><span class="pcard__cat">Brand Analysis</span></div></button>
+        <button class="pcard" data-case="jacquemus" data-cursor="open"><div class="pcard__img"><img src="assets/img/thumb-jacquemus.jpg" alt="Jacquemus"/></div><div class="pcard__meta"><span class="pcard__name">Jacquemus</span><span class="pcard__cat">Brand Analysis</span></div></button>
+      </div>
+      <button class="projects__arrow projects__arrow--next" id="projNext" aria-label="Scroll to next projects" data-cursor="next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
   </section>
 
@@ -189,7 +194,7 @@
         <div class="milestone" data-x="61"><div class="milestone__sign"><div class="yr">2024 — 25</div><h4>JSW Steel</h4><p>B2B Sales intern</p></div><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld"><rect x="22" y="22" width="36" height="52" fill="#c98f8f"/><rect x="28" y="28" width="7" height="7" fill="#ffe9e9"/><rect x="45" y="28" width="7" height="7" fill="#ffe9e9"/><rect x="28" y="40" width="7" height="7" fill="#ffe9e9"/><rect x="45" y="40" width="7" height="7" fill="#ffe9e9"/><rect x="33" y="56" width="14" height="18" fill="#8a5a5a"/></svg></div></div>
         <div class="milestone" data-x="76"><div class="milestone__sign"><div class="yr">2025</div><h4>Maersk Line</h4><p>Customer Experience · Mumbai</p></div><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld"><rect x="16" y="20" width="48" height="54" fill="#7fa9b0"/><rect x="22" y="26" width="8" height="8" fill="#e6f6f6"/><rect x="36" y="26" width="8" height="8" fill="#e6f6f6"/><rect x="50" y="26" width="8" height="8" fill="#e6f6f6"/><rect x="22" y="40" width="8" height="8" fill="#e6f6f6"/><rect x="36" y="40" width="8" height="8" fill="#e6f6f6"/><rect x="50" y="40" width="8" height="8" fill="#e6f6f6"/><rect x="34" y="58" width="12" height="16" fill="#54787e"/></svg></div></div>
         <div class="milestone" data-x="90"><div class="milestone__sign"><div class="yr">2024 — 2026</div><h4>MBA · IIFT</h4><p>Marketing &amp; Strategy</p></div><div class="milestone__art"><svg viewBox="0 0 80 80" class="bld bld-uni"><rect x="12" y="32" width="56" height="42" fill="#b9a0d8"/><path d="M6 32 40 12 74 34z" fill="#7c63a6"/><rect x="34" y="52" width="12" height="22" fill="#5b4480"/><rect x="20" y="40" width="9" height="9" fill="#efe6fb"/><rect x="51" y="40" width="9" height="9" fill="#efe6fb"/><circle cx="40" cy="24" r="3" fill="#efe6fb"/></svg></div></div>
-        <!-- <div class="milestone milestone--estee" data-x="105"><div class="milestone__sign milestone__sign--star"><div class="yr">Next ✨</div><h4>Estée Lauder</h4><p>hopefully — the dream role</p></div><div class="milestone__art"><div class="billboard"><span class="billboard__brand">ESTĒE<br>LAUDER</span></div></div></div> -->
+        <div class="milestone milestone--dream" data-x="105"><div class="milestone__sign milestone__sign--star"><div class="yr">Next ✨</div><h4>Deconstruct</h4><p>hopefully, the dream role</p></div><div class="milestone__art"><div class="decon-logo"><img src="assets/img/decon_logo.png" alt="Deconstruct" /></div></div></div>
       </div>
       <div class="dog" id="dog"></div>
       <div class="girl" id="girl"></div>
@@ -236,6 +241,70 @@
     <button class="filewin__close" id="fileClose" aria-label="Close" data-cursor="close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
   <div class="filewin__body" id="fileBody" data-lenis-prevent>
+
+    <!-- DECONSTRUCT -->
+    <div class="casepanel" data-panel="deconstruct">
+      <span class="casepanel__type">Brand Analysis</span>
+      <h1 class="casepanel__title">Deconstruct</h1>
+      <p class="casepanel__lead">Most skincare brands sell you a transformation. Deconstruct sells you <em>understanding.</em></p>
+      <div class="casepanel__cover"><img src="assets/img/decon_showcase2.jpeg" alt="The Deconstruct product range" /></div>
+      <div class="stats" data-stats>
+        <div class="stat"><div class="stat__num" data-count="10" data-suffix="x" data-plain="true">0</div><div class="stat__label">Growth in 2024, from January to December, while turning profitable</div></div>
+        <div class="stat"><div class="stat__num" data-count="500" data-prefix="₹" data-suffix=" cr">0</div><div class="stat__label">The revenue figure the brand is now eyeing</div></div>
+        <div class="stat"><div class="stat__num" data-count="15" data-suffix="M+" data-plain="true">0</div><div class="stat__label">Views on campaigns, with strong engagement</div></div>
+      </div>
+
+      <div class="crow">
+        <div class="ccopy"><span class="step"><b>01</b> — The brand</span><h3>Make good skincare actually make sense.</h3>
+          <p>Deconstruct was launched by <strong>Malini Adapureddy in 2020</strong> with one very clear mission: make science-backed skincare actually accessible to real people. Not intimidating, not overpriced, not full of claims nobody can verify. Just honest, effective products built for Indian skin.</p>
+          <p>In 2024 alone the brand grew <strong>10x</strong> from January to December and achieved profitability, which is rare for a D2C brand at this stage. They are now eyeing <strong>₹500 crore.</strong> For a brand that started by simply telling people what's actually in their products, that's a remarkable place to be.</p></div>
+        <div class="cfig"><img src="assets/img/decon_founder.jpg" alt="Founder Malini Adapureddy holding Deconstruct serums" /></div>
+      </div>
+
+      <div class="crow crow--rev">
+        <div class="cfig"><img src="assets/img/decon_blog.png" alt="Deconstruct skincare routine explainer" /></div>
+        <div class="ccopy"><span class="step"><b>02</b> — What they're getting right</span><h3>They chose education over hype.</h3>
+          <p>The thing that genuinely impresses me about Deconstruct is that they chose education over hype at a time when every other skincare brand was doing the opposite. While competitors were throwing celebrities at problems and making miracle claims, Deconstruct was quietly explaining what Niacinamide actually does, and why you shouldn't layer certain actives together. That decision built something no marketing budget can manufacture: <strong>actual trust.</strong></p>
+          <p>Their content doesn't talk down to their audience, and it doesn't overcomplicate things either. It sits right in that sweet spot where a complete beginner feels confident enough to start, and an ingredient-obsessed skincare nerd still finds it worth watching.</p></div>
+      </div>
+
+      <!-- <div class="ccopy ccopy--full ccopy--band">
+        <figure><img src="assets/img/decon_show2.webp" alt="A Deconstruct educational content piece" /></figure>
+        <span class="ccopy--band__cap">A typical Deconstruct post: a real concern, answered simply.</span>
+      </div> -->
+
+      <div class="crow">
+        <div class="ccopy">
+          <!-- <h3>Content that actually moves people.</h3> -->
+          <p>That  is genuinely hard to do. Their influencer strategy reflects it too: they brief creators on technical content for bottom-funnel audiences, while using personality-led creators for awareness, which led to campaigns crossing <strong>15 million views</strong> with strong engagement. It's not just pretty content. It's content that actually moves people through a purchase decision.</p>
+          <p>Their early entry into quick commerce, on <strong>Swiggy Instamart, Zepto and Blinkit,</strong> has contributed 10 to 15% of revenues, with 200% month-on-month growth in some channels. For a skincare brand, that's significant. It means when someone runs out of their serum on a Wednesday night, Deconstruct is the brand that shows up. That's not just distribution strategy. <em>That's becoming a habit.</em></p></div>
+        <div class="cfig"><img src="assets/img/decon_social.webp" alt="The full Deconstruct product range" style="object-fit: contain;"/></div>
+      </div>
+
+      <div class="crow crow--rev">
+        <div class="cfig"><img src="assets/img/decon_why.jpg" alt="Deconstruct serum lineup" style="object-fit: contain;"/></div>
+        <div class="ccopy"><span class="step"><b>03</b> — What's unique</span><h3>They sell understanding, not a transformation.</h3>
+          <p>Most skincare brands sell you a transformation. Deconstruct sells you understanding, and that's a fundamentally different relationship with a customer. When you understand <em>why</em> a product works, you not only repurchase but you also become an advocate because you can actually explain it to someone else.</p>
+          <p>That word-of-mouth aspect is exactly why Deconstruct has grown the way it has without spending like a legacy brand. In a market where trends often overpower trust, they chose to build <strong>trust first,</strong> and the growth followed.</p></div>
+      </div>
+
+      <span class="step step--lone"><b>04</b> — A campaign idea</span>
+      <div class="tagblock"><span class="mono">The idea</span><p>Unke Liye <em>Bhi.</em></p></div>
+      <div class="crow">
+        <div class="ccopy"><h3>The one person the routine skipped.</h3>
+          <p>Deconstruct's Gen Z audience knows their ingredients, follows their routines, and genuinely cares about their skin. But there's someone at home who doesn't, and probably never will, unless their kid shows them.</p>
+          <p>Indian parents grew up in a time when skincare meant soap, or whatever cream was within reach at the nearest grocery store, and sometimes not even that. They have real skin concerns like uneven tone, pigmentation, sun damage and dullness, but nobody has ever spoken to them about how to treat any of it. They aren't going to find Deconstruct on their own, because they aren't willing to put in that effort for themselves. But their kids can bring it to them.</p></div>
+        <div class="ccopy"><h3>The kid is the bridge.</h3>
+          <p>The campaign puts out content specifically designed to be shared with a parent. Not about young skin, but about theirs. The kind of thing a 22-year-old would genuinely forward to their family, saying "this is actually useful."</p>
+          <p>For execution, it stays true to how Deconstruct already communicates: short educational reels and simple carousels, but written for a parent, not just a Gen Z audience. The Gen Z kid is the bridge. They already trust the brand, and now they have a reason to pass that trust home. The content is designed to be saved and forwarded on <strong>Instagram</strong> & majorly <strong>WhatsApp,</strong> which is where Indian parents actually spend their time.</p></div>
+
+      </div>
+          <div class="cfig" ><img src="assets/img/decon_camp.png" alt="Deconstruct ingredient education" style="display: block; height: 800px; width: auto; margin: 0 auto; object-fit: contain;"/></div>
+      
+      <!-- <div class="casepanel__cover"><img src="assets/img/decon_teach2.jpg" alt="Deconstruct product texture" /></div> -->
+
+      <div class="takeaway"><span class="step">The bigger picture</span><p>Deconstruct figured out something most brands spend years trying to manufacture: if you genuinely help people understand something, they come back. Every piece of content they make is essentially a small act of generosity, and that's built a community that doesn't just buy their products but <strong>believes in the brand.</strong> In a market full of noise, that kind of quiet confidence is <em>the hardest thing to compete with.</em></p></div>
+    </div>
 
     <!-- OREO -->
     <div class="casepanel" data-panel="oreo">
