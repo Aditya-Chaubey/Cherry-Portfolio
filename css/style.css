@@ -263,26 +263,13 @@ html[data-theme="light"] .hero::after{background:
 .projects__title span{color:var(--text-soft);font-weight:500}
 .projects__hint{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
 .projects__carousel{position:relative}
-.projects__row{display:flex;gap:.7rem;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;
-  -ms-overflow-style:none;scrollbar-width:none;padding:1rem 0 1.4rem;scroll-padding:0}
-.projects__row::-webkit-scrollbar{display:none}
-.pcard{flex:0 0 calc((100% - 2.1rem)/4);scroll-snap-align:start}
-.projects__arrow{position:absolute;top:50%;z-index:6;width:clamp(40px,3.4vw,52px);height:clamp(40px,3.4vw,52px);
-  border-radius:50%;display:grid;place-items:center;background:var(--bg-elev);border:1px solid var(--line);
-  box-shadow:0 16px 34px -18px var(--shadow);cursor:none;
-  transition:opacity .4s var(--ease),background .4s var(--ease),border-color .4s var(--ease)}
-.projects__arrow svg{width:42%;height:42%;fill:none;stroke:var(--text);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
-.projects__arrow--prev{left:0;transform:translate(-45%,-50%)}
-.projects__arrow--next{right:0;transform:translate(45%,-50%)}
-.projects__arrow:hover{background:var(--accent);border-color:var(--accent)}
-.projects__arrow:hover svg{stroke:var(--invert-text)}
-.projects__arrow.is-off{opacity:0;pointer-events:none}
-@media (max-width:900px){ .projects__arrow{cursor:pointer} }
+.projects__row{display:flex;gap:.7rem;padding:1rem 0 1.4rem}
+.pcard{flex:1 1 0;min-width:0}
+.projects__arrow{display:none}
 @media (max-width:760px){
-  .projects__row{gap:.6rem}
-  .pcard{flex:0 0 calc((100% - .6rem)/2)}
-  .projects__arrow--prev{left:-.2rem;transform:translate(0,-50%)}
-  .projects__arrow--next{right:-.2rem;transform:translate(0,-50%)}
+  .projects__row{gap:.6rem;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;-ms-overflow-style:none;scrollbar-width:none}
+  .projects__row::-webkit-scrollbar{display:none}
+  .pcard{flex:0 0 calc((100% - .6rem)/2);scroll-snap-align:start}
 }
 .pcard{cursor:none;position:relative;border:none;border-radius:8px;overflow:hidden;background:var(--bg-2);aspect-ratio:4/5;transition:.5s var(--ease)}
 .pcard__img{position:absolute;inset:0}
